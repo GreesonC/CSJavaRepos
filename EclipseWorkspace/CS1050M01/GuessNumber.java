@@ -20,6 +20,7 @@ public class GuessNumber
 		int number = (int) (Math.random() * RANDOM_MULTIPLIER) + 1;
 
 		Scanner keyboardInput = new Scanner(System.in);
+
 		System.out.println("Guess a magic number between 0 and 100");
 
 		int guess = -1;
