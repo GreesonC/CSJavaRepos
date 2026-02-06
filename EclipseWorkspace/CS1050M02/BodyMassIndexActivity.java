@@ -5,6 +5,7 @@
  */
 
 // ADD CODE to import Scanner class
+import java.util.Scanner;
 
 public class BodyMassIndexActivity
 {
@@ -14,18 +15,16 @@ public class BodyMassIndexActivity
 
 		// Create constant an variables
 		// constants
-		final int FORM_BMI = 703;
-		
+		final double FORM_BMI = 703;
+
 		// factor formula in pounds
 		// Variables
-		int weight = (0.0)
-		int height = (0.0)
-		
-		
 		// The user's weight
+		double weight = 0.0;
 		// The user's height
+		double height = 0.0;
 		// The user's BMI
-
+		double bmi = 0;
 		// Create a Scanner object for scanning input from keyboard
 		Scanner keyboardInput = new Scanner(System.in);
 		// Tell the user what the program will do.
@@ -40,7 +39,7 @@ public class BodyMassIndexActivity
 		// ADD CODE input next double for height
 
 		// Calculate the user's body mass index.
-		bmi = weight * BMI_US_FACTOR / (height * height);
+		bmi = weight * FORM_BMI / (height * height);
 
 		// Display the user's BMI.
 		System.out.printf("Your body mass index (BMI) is %f", bmi);
