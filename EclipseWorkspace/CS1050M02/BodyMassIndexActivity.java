@@ -24,7 +24,7 @@ public class BodyMassIndexActivity
 		// The user's height
 		double height = 0.0;
 		// The user's BMI
-		double bmi = 0;
+		double bmi = 0.0;
 		// Create a Scanner object for scanning input from keyboard
 		Scanner keyboardInput = new Scanner(System.in);
 		// Tell the user what the program will do.
