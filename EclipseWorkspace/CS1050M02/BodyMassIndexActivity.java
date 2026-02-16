@@ -1,5 +1,6 @@
 /**
- * Name: Cameron Greeson Class: 1050 (M/W) 
+ * Name: Cameron Greeson 
+ * Class: 1050 (M/W) 
  * Description: Calculating finals
  * Calculate the BMI using formula in US units. User will enter weight in pounds
  * and height in inches
