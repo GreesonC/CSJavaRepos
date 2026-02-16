@@ -44,7 +44,7 @@ public class BodyMassIndexActivity
 
 		// Calculate the user's body mass index.
 		bmi = weight * FORM_BMI / (height * height);
-		System.out.printf("Your body mass index (BMI) is %f.\n", bmi);
+		System.out.printf("Your body mass index (BMI) is %f. ", bmi);
 		if (bmi >= 30)
 		{
 			System.out.println("You're Obese");
