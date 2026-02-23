@@ -15,11 +15,11 @@ public class ConcertTickets
 	{
 		// TODO Auto-generated method stub
 		// Create constants for seating
-		char front = 'F';
-		char center = 'C';
-		char side = 'S';
-		char upper = 'U';
-		int section = '0';
+		char front = 'f';
+		char center = 'c';
+		char side = 's';
+		char upper = 'u';
+		char section = '0';
 		int rownumber = (0);
 
 		Scanner keyboardInput = new Scanner(System.in);
@@ -32,8 +32,36 @@ public class ConcertTickets
 
 		System.out.println("Enter your preffered section: ");
 		// Enter your option
+		section = Character.toUpperCase(section);
 		section = keyboardInput.next().charAt(0);
-		if (section = 'F')
+		switch (section)
+		{
+		case 'F':
+		{
+			System.out.println("Front Section Selected");
+			break;
+		}
+		case 'C':
+		{
+			System.out.println("Center Section Selected");
+			break;
+		}
+		case 'S':
+		{
+			System.out.println("Side Section Selected");
+			break;
+		}
+		case 'U':
+		{
+			System.out.println("Upper Section Selected");
+			break;
+		}
+		default:
+		{
+			System.out.println("Invalid Section Selected");
+		} // end switch
+
+		}
 
 	}
 
