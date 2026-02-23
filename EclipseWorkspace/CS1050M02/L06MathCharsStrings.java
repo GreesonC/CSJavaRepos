@@ -1,10 +1,8 @@
 
 /**
- * 
- */
-
-/**
- * 
+ * Cameron Greeson
+ * CS 1050 (M W)
+ * Description: Creating a madlibs using string and chars 
  */
 import java.util.Scanner;
 

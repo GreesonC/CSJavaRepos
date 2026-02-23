@@ -75,7 +75,7 @@ public class ConcertTickets
 			System.out.println("section:" + section + "Row " + rownumber + " selected: $300");
 		} else if (rownumber <= 15)
 		{
-			System.out.println("section:" + section + ",Row " + rownumber + " selected: $200");
+			System.out.println("section:" + section + "Row " + rownumber + " selected: $200");
 		} else
 			System.out.println("Invalid Selection, program ending.");
 		// Row number result
@@ -83,5 +83,5 @@ public class ConcertTickets
 			// String ticket = section + rownumber +
 		}
 	}
-
-}
+//End of main
+}// End of class
