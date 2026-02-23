@@ -32,8 +32,9 @@ public class ConcertTickets
 
 		System.out.println("Enter your preffered section: ");
 		// Enter your option
-		section = Character.toUpperCase(section);
+		// section = Character.toUpperCase(section);
 		section = keyboardInput.next().charAt(0);
+		section = Character.toUpperCase(section);
 		switch (section)
 		{
 		case 'F':
@@ -59,10 +60,15 @@ public class ConcertTickets
 		default:
 		{
 			System.out.println("Invalid Section Selected");
-		} // end switch
-
 		}
+		}// end switch
 
+		// Row number input
+		rownumber = keyboardInput.nextint();
+
+		// Row number result
+		{
+		}
 	}
 
 }
