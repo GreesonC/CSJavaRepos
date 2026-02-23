@@ -64,10 +64,23 @@ public class ConcertTickets
 		}// end switch
 
 		// Row number input
-		rownumber = keyboardInput.nextint();
+		System.out.println("Choose your row number (1-60)");
+		rownumber = keyboardInput.nextInt();
 
+		if (rownumber <= 60)
+		{
+			System.out.println("section:" + section + " Row " + rownumber + " selected: $200");
+		} else if (rownumber <= 30)
+		{
+			System.out.println("section:" + section + "Row " + rownumber + " selected: $300");
+		} else if (rownumber <= 15)
+		{
+			System.out.println("section:" + section + ",Row " + rownumber + " selected: $200");
+		} else
+			System.out.println("Invalid Selection, program ending.");
 		// Row number result
 		{
+			// String ticket = section + rownumber +
 		}
 	}
 
