@@ -56,7 +56,7 @@ public class BodyMassIndexActivity
 			System.out.println("You're Normal Weight");
 		} else
 		{
-			System.out.println("Obese");
+			System.out.println("You're Underweight");
 		}
 		keyboardInput.close();
 	}// End of Main
