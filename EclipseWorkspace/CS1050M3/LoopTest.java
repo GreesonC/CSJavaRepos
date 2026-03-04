@@ -16,7 +16,7 @@ public class LoopTest
 		// PART 1
 		Scanner userInput = new Scanner(System.in);
 		// Add int
-		int exponent = (0);
+		int exponent = 0;
 		do
 		{
 			System.out.println("Enter a positive number for exponent. ");
