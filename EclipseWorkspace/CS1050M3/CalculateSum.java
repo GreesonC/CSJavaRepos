@@ -1,6 +1,7 @@
 
-/**
- * 
+/** Cameron Greeson
+ * CS 1050 M W
+ * Description: Creating a sum of the number given by user input
  */
 import java.util.Scanner;
 

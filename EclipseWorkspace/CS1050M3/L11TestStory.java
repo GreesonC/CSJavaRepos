@@ -26,7 +26,8 @@ public class L11TestStory
 		userName = userInput.next();
 		password = userInput.next();
 		if (userName.equals(correctU))
-			;
+		{
+		}
 
 		// System.out.println("Login Granted");
 
