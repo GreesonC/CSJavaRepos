@@ -13,40 +13,38 @@ public class UserStoriesBMI
 	 */
 	public static void main(String[] args)
 	{
+
 		// TODO Auto-generated method stub
 		// Summary
+		Scanner keyboardInput = new Scanner(System.in);
 		System.out.println("Entering your athletes height and weight to return their BMI on these BMI ranges.\r\n"
 				+ "Under 18.5: Underweight\r\n" + "18.5 to under 25: Normal\r\n" + "25 to under 30: Overweight\r\n"
 				+ "30 or greater: Obese");
-
+		String prompt = "Enter your height";
+		double height = validate(keyboardInput, prompt);
 		// final double FORM_BMI = 703;
 
 	}
 
-	public static double validate(double currentHeight, double currentWeight)
+	public static double validate(Scanner methodInput, String prompt)
 	{
-		double currentWeight = 0.0;
+		double validDouble = 0.0;
+		System.out.println(prompt);
 
-		double currentHeight = 0.0;
+		validDouble = methodInput.nextDouble();
 
-		double bmi = 0.0;
-
-		Scanner keyboardInput = new Scanner(System.in);
-		currentWeight = keyboardInput.nextDouble();
-		currentHeight = keyboardInput.nextDouble();
-
-		if (currentWeight <= 0.0 && currentHeight <= 0.0)
-			;
-		System.out.println("Invalid entry. Enter a postive double.");
-
+		return validDouble;
 	}
 
 	// BMI calculation
-	public static double calculateBmi(double currentBmi)
+	public static double calculateBmi(double currentHeight, double currentWeight)
 	{
+		double currentBmi = 0;
+		final int FORM_BMI = 703;
 
-		currentBmi = weight * FORM_BMI / (height * height);
+		currentBmi = currentWeight * FORM_BMI / (currentWeight * currentHeight);
 
+		return currentBmi;
 	}
 
 	// Display athletes BMI value and category
