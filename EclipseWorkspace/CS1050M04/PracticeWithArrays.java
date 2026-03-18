@@ -27,8 +27,21 @@ public class PracticeWithArrays
 		firstNames = new String[students];
 		for (int i = 0; i < students; i++)
 		{
-
+			String name = "name";
+			double grades = 0.0;
+			System.out.println("Enter students name ");
+			name = keyboardInput.next();
+			firstNames[i] = name;
+			System.out.println("Enter students grade as a double ");
+			grades = keyboardInput.nextDouble();
+			finalGrades[i] = grades;
 		}
-	}
 
-}
+		double currentSum = 0;
+		for (int index = 0; index < finalGrades.length; index++)
+		{
+			currentSum = currentSum + finalGrades[index];
+			System.out.println(currentSum);
+		}
+	}// End of Main
+} // End of Class

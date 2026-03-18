@@ -20,6 +20,7 @@ public class UserStoriesBMI
 		System.out.println("Entering your athletes height and weight to return their BMI on these BMI ranges.\r\n"
 				+ "Under 18.5: Underweight\r\n" + "18.5 to under 25: Normal\r\n" + "25 to under 30: Overweight\r\n"
 				+ "30 or greater: Obese");
+
 		String prompt = "Enter your height in inches";
 		double height = getPositiveDouble(keyboardInput, prompt);
 
@@ -27,9 +28,12 @@ public class UserStoriesBMI
 		double weight = getPositiveDouble(keyboardInput, prompt);
 
 		double bmi = calculateBmi(height, weight);
-		System.out.println("Your BMI is " + bmi);
 
 		String bmiCategory = getBMICategory(bmi);
+		System.out.println("Your BMI is " + bmi + "\n" + bmiCategory);
+
+		String askingquestion = "Do you want to continue? y or n";
+		boolean askContinue = askToContinue(keyboardInput, askingquestion);
 	}
 
 	public static double getPositiveDouble(Scanner methodInput, String prompt)
@@ -65,27 +69,36 @@ public class UserStoriesBMI
 	public static String getBMICategory(double currentBMI)
 	{
 
-		String bmiCategory;
+		String bmiCategory = "";
 
 		if (currentBMI >= 30)
 		{
-			System.out.println("You're Obese");
+			bmiCategory = "You're obese";
 		} else if (currentBMI >= 25)
 		{
-			System.out.println("You're Overweight");
+			bmiCategory = "You're overweight";
 		} else if (currentBMI >= 18.5)
 		{
-			System.out.println("You're Normal Weight");
+			bmiCategory = "You're a healthy weight";
 		} else
 		{
-			System.out.println("You're Underweight");
+			bmiCategory = "You're underweight";
 		}
 		return bmiCategory;
-	}
+	}// End of GetBMICategory
 
-	public static void printSummary()
+	public static boolean askToContinue(Scanner userInput)
 	{
+		boolean question = true;
+		char answer = userInput.next().charAt(0);
+		answer = Character.toUpperCase(answer);
+
+		System.out.println("Do you want to continue? y or n");
+		while (question = true)
+		{
+
+			return question;
+		}
 
 	}
-	// loop back to add more athletes
-}
+}// End of Main
