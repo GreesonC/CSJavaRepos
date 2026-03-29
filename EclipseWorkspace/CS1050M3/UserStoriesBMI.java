@@ -21,19 +21,30 @@ public class UserStoriesBMI
 				+ "Under 18.5: Underweight\r\n" + "18.5 to under 25: Normal\r\n" + "25 to under 30: Overweight\r\n"
 				+ "30 or greater: Obese");
 
-		String prompt = "Enter your height in inches";
-		double height = getPositiveDouble(keyboardInput, prompt);
+		boolean askContinue = askToContinue(keyboardInput);
+		int athletes = 0;
+		while (askContinue = true)
+		{
+			athletes = athletes + 1;
+			String prompt = "Enter your height in inches";
+			double height = getPositiveDouble(keyboardInput, prompt);
 
-		prompt = "Enter your weight in pounds";
-		double weight = getPositiveDouble(keyboardInput, prompt);
+			prompt = "Enter your weight in pounds";
+			double weight = getPositiveDouble(keyboardInput, prompt);
 
-		double bmi = calculateBmi(height, weight);
+			double bmi = calculateBmi(height, weight);
 
-		String bmiCategory = getBMICategory(bmi);
-		System.out.println("Your BMI is " + bmi + "\n" + bmiCategory);
+			String bmiCategory = getBMICategory(bmi);
+			System.out.println("Your BMI is " + bmi + "\n" + bmiCategory);
 
-		String askingquestion = "Do you want to continue? y or n";
-		boolean askContinue = askToContinue(keyboardInput, askingquestion);
+			if (askContinue = false)
+			{
+
+				// String summary = finalSummary(athletes, height, weight, bmi, askContinue);
+				System.out.println("summary");
+			}
+		}
+
 	}
 
 	public static double getPositiveDouble(Scanner methodInput, String prompt)
@@ -89,16 +100,39 @@ public class UserStoriesBMI
 
 	public static boolean askToContinue(Scanner userInput)
 	{
-		boolean question = true;
+		boolean askContinue = true;
+		boolean invalid = true;
+		System.out.println("Do you want to add an athlete? y or n");
 		char answer = userInput.next().charAt(0);
 		answer = Character.toUpperCase(answer);
 
-		System.out.println("Do you want to continue? y or n");
-		while (question = true)
+		if (answer == 'Y' || answer == 'y')
 		{
+			askContinue = true;
 
-			return question;
+		} else if (answer == 'N' || answer == 'n')
+		{
+			askContinue = false;
+		} else
+		{
+			System.out.println("Invalid entry. Enter y or n");
+			answer = userInput.next().charAt(0);
+			answer = Character.toUpperCase(answer);
 		}
 
-	}
+		return askContinue;
+
+	}// End of Ask to continue
+
+	// public static String finalSummary(int currentAthlete, double athleteHeight,
+	// double athleteWeight, double athleteBMI, boolean question) {
+
+	// String summary = "";
+	// boolean question = false;
+	// System.out.println("Athlete " + currentAthlete + "has Height and Weight of "
+	// + athleteHeight + athleteWeight + "total BMI is " + athleteBMI);
+
+	// return summary;
+	// }
+
 }// End of Main

@@ -87,6 +87,8 @@ public class M04PassArrayLabs
 		displayArray(arrayCopy);
 
 		// Summarize part 2
+		// arrayCopy is = array1 at index "i"
+		// When i < array1.length then i increments by 1
 
 		// Part 3 Passing array3 into updatePassedArray Method
 		System.out.println("-------- Part 3 Pass Arrays---------");
@@ -105,6 +107,11 @@ public class M04PassArrayLabs
 		displayArray(array3);
 
 		// summarize Part 3
+		// array3 is being initialized as an int and allocating space for arrays
+		// array3 is holding values 100, 200, 300, 400
+		// Calling the method updatePassedArray for array3
+		// Method updatePassedArray is a loop to increment when counter i is less than
+		// passedArray.length
 
 		// Part 4 Returning arrays from a method
 		System.out.println("-------- Part 4 Return Arrays from method---------");
@@ -130,7 +137,7 @@ public class M04PassArrayLabs
 
 		for (int i = 0; i < passedArray.length; i++)
 		{
-
+			// Set equal to themselves then adding +100
 			passedArray[i] = passedArray[i] + 100;
 		}
 
