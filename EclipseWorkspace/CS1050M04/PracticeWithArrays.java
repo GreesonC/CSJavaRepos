@@ -38,10 +38,12 @@ public class PracticeWithArrays
 		}
 
 		double currentSum = 0;
+		// double average = 0;
 		for (int index = 0; index < finalGrades.length; index++)
 		{
-			currentSum = currentSum + finalGrades[index];
-			System.out.println(currentSum);
+			currentSum = currentSum + finalGrades[index] / students;
+
+			System.out.println("The average is " + currentSum);
 		}
 	}// End of Main
 } // End of Class

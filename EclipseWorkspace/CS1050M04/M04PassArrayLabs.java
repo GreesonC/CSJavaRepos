@@ -23,7 +23,8 @@ public class M04PassArrayLabs
 
 		System.out.println("reference variable array1 " + array1);
 		System.out.println("reference variable array2 " + array2);
-		// array2 will be assigned three numbers in index place 0,1,2,
+		// array2 will be assigned three numbers in index place 0,1,2, index 4 = 0
+		// because there is nothing assigned
 		array2[0] = 1;
 		array2[1] = 112;
 		array2[2] = 82;
@@ -44,6 +45,7 @@ public class M04PassArrayLabs
 		System.out.println("Display array2\n");
 		displayArray(array2);
 		// assigned index 1 of array1 to 9000 and index 3 to array2 1000
+		// Since they are set equal, they are sharing the numbers
 		array1[1] = 9000;
 		array2[3] = 1000;
 
@@ -69,12 +71,18 @@ public class M04PassArrayLabs
 		displayArray(array1);
 		System.out.println("Display arrayCopy\n");
 		displayArray(arrayCopy);
-
+		// arrayCopy is taking the values of array1 & array2 for every index as long as
+		// i < array1 string length
+		// arrayCopy stops at index 4 because there are no more values being help so i
+		// will be greater than array1 length
+		// Thus ending the for-loop
 		for (int i = 0; i < array1.length; i++)
 		{
 			arrayCopy[i] = array1[i];
 		}
-
+		// array1 is going to assign the value -400 to index 1
+		// this will also change array2 index to -400
+		// arrayCopy will assign -999 to index 3 and only for arrayCopy
 		array1[1] = -400;
 		arrayCopy[3] = -999;
 
@@ -92,7 +100,8 @@ public class M04PassArrayLabs
 
 		// Part 3 Passing array3 into updatePassedArray Method
 		System.out.println("-------- Part 3 Pass Arrays---------");
-
+		// New array variable initialized as array3
+		// values are assigned to the 4 index positions
 		int[] array3 =
 		{ 100, 200, 300, 400 };
 
@@ -102,7 +111,7 @@ public class M04PassArrayLabs
 		displayArray(array3);
 
 		updatePassedArray(array3);
-
+		// array3 has been passed the updated values from the updatePassedArrays method
 		System.out.println("Display array3\n");
 		displayArray(array3);
 
@@ -117,7 +126,8 @@ public class M04PassArrayLabs
 		System.out.println("-------- Part 4 Return Arrays from method---------");
 
 		System.out.println("call createArray method\n");
-
+		// calling method createArray
+		// taking the random values from the creatArray method loop
 		int[] array4 = createArray(5);
 
 		System.out.println("after createArray method");
@@ -134,6 +144,10 @@ public class M04PassArrayLabs
 	{
 		System.out.println("\n** STACK updatePassedArray method start **");
 		System.out.println("passedArray " + passedArray);
+		// variable passedArray has received the values from array3
+		// the for-loop will take the index position of i and its value for passedArray
+		// and then add 100
+		// as long as i is less that the array length, the loop continues
 
 		for (int i = 0; i < passedArray.length; i++)
 		{
@@ -153,7 +167,10 @@ public class M04PassArrayLabs
 	public static int[] createArray(int arraySize)
 	{
 		System.out.println("\n** STACK createArray method start** ");
-
+		// newArray is holding 5 index positions as it was passed from array4
+		// for each index position, a random number will be selected, mulipltied by 10,
+		// and added 1
+		// it will stay an int so the decimals will be removed
 		int[] newArray = new int[arraySize];
 		System.out.println("createArray " + newArray);
 		for (int i = 0; i < newArray.length; i++)
