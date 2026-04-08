@@ -40,43 +40,50 @@ public class BMIDesignTrainerTest
 		while (athletes <= 0)
 		{
 			System.out.println("Error: Enter a value greater than 0.");
-			System.out.println("Enter the number of athletes on the team: ");
+			System.out.println(athletes + "Enter the number of athletes on the team: ");
 			athletes = keyboardInput.nextInt();
 			if (athletes > 0)
 			{
-				System.out.print("Number of athletes on the team: " + athletes);
+				System.out.print(athletes + "Number of athletes on the team: ");
 
 			}
-			// String[] updatedInfo = validateAthleteInfo(weight, height, athletes, names,
-			// keyboardInput);
-
-			// double bmi = calculateBmi(height, weight);
 
 		}
 
-		String prompt = "Enter your height in inches";
-		double height = getPositiveDouble(keyboardInput, prompt);
-
-		prompt = "Enter your weight in pounds";
-		double weight = getPositiveDouble(keyboardInput, prompt);
-
 	}// End of Main
 
-	// Athlete information and validation (Age, BMI, MHR, Names, Weight, Height, )
+	// Validating height and weight is a double
+	public static double getPositiveDouble(Scanner methodInput, String prompt)
+	{
+		double validDouble = 0.0;
+		System.out.println(prompt);
+
+		validDouble = methodInput.nextDouble();
+		while (validDouble <= 0)
+		{
+			System.out.println("Error, invalid entry. Enter positive double. ");
+			System.out.println(prompt);
+			validDouble = methodInput.nextDouble();
+
+		}
+		return validDouble;
+	}
+
+	// Athlete information (Age, BMI, MHR, Names, Weight, Height, )
 	public static void enterAthleteData(double[] currentBmi, double[] currentMhr, String[] currentNames,
-			Scanner inputMethod)
+			Scanner inputMethod, String validPrompt)
 	{
 
 		for (int i = 0; i < currentNames.length; i++)
 			currentNames[i] = inputMethod.next();
-		double weight = getPositiveDouble(); // Finish Method for positive double
-		double height = getPositiveDouble(); // Finish Method for positive double
+		double weight = getPositiveDouble(inputMethod, validPrompt); // Finish Method for positive double
+		double height = getPositiveDouble(inputMethod, validPrompt); // Finish Method for positive double
 
-		currentBmi[i] = getBmi(); // Finish Method for BMI calc
+		// currentBmi[i] = calculateBmi(); // Finish Method for BMI calc
 
 		int age = inputMethod.nextInt();
 
-		currentMhr = getMhr(); // Finish method for Max Heart Rate
+		// currentMhr = getMhr(); // Finish method for Max Heart Rate
 
 	}
 
