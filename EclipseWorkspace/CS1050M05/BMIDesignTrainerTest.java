@@ -15,8 +15,6 @@ public class BMIDesignTrainerTest
 
 		// TODO Auto-generated method stub
 		int athletes = 0;
-		double weight = 0;
-		double height = 0;
 
 		Scanner keyboardInput = new Scanner(System.in);
 		// Display overview of program
@@ -40,11 +38,11 @@ public class BMIDesignTrainerTest
 		while (athletes <= 0)
 		{
 			System.out.println("Error: Enter a value greater than 0.");
-			System.out.println(athletes + "Enter the number of athletes on the team: ");
+			System.out.println("Enter the number of athletes on the team: ");
 			athletes = keyboardInput.nextInt();
 			if (athletes > 0)
 			{
-				System.out.print(athletes + "Number of athletes on the team: ");
+				System.out.print("Number of athletes on the team: " + athletes);
 
 			}
 
