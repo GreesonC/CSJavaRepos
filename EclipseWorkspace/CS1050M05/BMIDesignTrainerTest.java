@@ -14,10 +14,9 @@ public class BMIDesignTrainerTest
 	{
 
 		// TODO Auto-generated method stub
-		double[] weightUsed;
-		double[] heightUsed;
-		String[] firstNames;
 		int athletes = 0;
+		double weight = 0;
+		double height = 0;
 
 		Scanner keyboardInput = new Scanner(System.in);
 		// Display overview of program
@@ -34,8 +33,8 @@ public class BMIDesignTrainerTest
 		System.out.println("**************************************");
 		System.out.println("Athlete Entry");
 		System.out.println("**************************************");
-		// Enter amount of athletes
 
+		// Enter amount of athletes
 		System.out.println("Enter the number of athletes on the team: ");
 		athletes = keyboardInput.nextInt();
 		while (athletes <= 0)
@@ -50,39 +49,48 @@ public class BMIDesignTrainerTest
 			}
 			// String[] updatedInfo = validateAthleteInfo(weight, height, athletes, names,
 			// keyboardInput);
-			weightUsed = new double[athletes];
-			heightUsed = new double[athletes];
-			firstNames = new String[athletes];
 
-			for (int i = 0; i < athletes; i++)
-			{
-				System.out.println("Enter data for athlete ");
-				String name = "name";
-				double weight = 0;
-				double height = 0;
+			// double bmi = calculateBmi(height, weight);
 
-				System.out.println("athletes first name: ");
-				name = keyboardInput.next();
-				firstNames[i] = name;
-				System.out.println("Enter athletes weight in pounds: ");
-				weight = keyboardInput.nextDouble();
-				weightUsed[i] = weight;
-				System.out.println("Enter athletes height in inches: ");
-				height = keyboardInput.nextDouble();
-				heightUsed[i] = height;
-			}
 		}
+
+		String prompt = "Enter your height in inches";
+		double height = getPositiveDouble(keyboardInput, prompt);
+
+		prompt = "Enter your weight in pounds";
+		double weight = getPositiveDouble(keyboardInput, prompt);
 
 	}// End of Main
 
-	// Athlete information and validation (age, height, weight,)
-	public static String[] validateAthleteInfo(double[] currentWeight, double[] currentHeight, int[] currentAthletes, String[] currentNames, Scanner inputMethod)
+	// Athlete information and validation (Age, BMI, MHR, Names, Weight, Height, )
+	public static void enterAthleteData(double[] currentBmi, double[] currentMhr, String[] currentNames,
+			Scanner inputMethod)
 	{
-		
-		for (int i = 0; i < currentAthletes.length; i++)
+
+		for (int i = 0; i < currentNames.length; i++)
+			currentNames[i] = inputMethod.next();
+		double weight = getPositiveDouble(); // Finish Method for positive double
+		double height = getPositiveDouble(); // Finish Method for positive double
+
+		currentBmi[i] = getBmi(); // Finish Method for BMI calc
+
+		int age = inputMethod.nextInt();
+
+		currentMhr = getMhr(); // Finish method for Max Heart Rate
+
 	}
 
 	// Calculate and store user BMI
+	public static double calculateBmi(double currentHeight, double currentWeight)
+	{
+
+		double currentBmi = 0;
+		final int FORM_BMI = 703;
+
+		currentBmi = FORM_BMI * (currentWeight / Math.pow(currentHeight, 2));
+
+		return currentBmi;
+	}
 
 	// Calculate and store Max Heart Rate
 
