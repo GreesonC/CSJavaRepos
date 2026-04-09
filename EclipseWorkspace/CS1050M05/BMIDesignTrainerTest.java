@@ -84,10 +84,10 @@ public class BMIDesignTrainerTest
 
 			String prompt = "Enter your weight in pounds";
 			double weight = getPositiveDouble(inputMethod, prompt); // Finish Method for positive double
+			System.out.println(weight);
 			String prompt2 = "Enter your height in inches";
 			double height = getPositiveDouble(inputMethod, prompt2); // Finish Method for positive double
-
-			System.out.println(
+			System.out.println(height);
 
 			int age = inputMethod.nextInt();
 		}
