@@ -12,7 +12,7 @@ public class BMIDesignTrainerTest
 	 */
 	public static void main(String[] args)
 	{
-
+		// TESTING CODE
 		// TODO Auto-generated method stub
 		int athletes = 0;
 
@@ -95,7 +95,7 @@ public class BMIDesignTrainerTest
 		currentBmi = FORM_BMI * (currentWeight / Math.pow(currentHeight, 2));
 
 		return currentBmi;
-	}// New code
+	}
 
 	// Calculate and store Max Heart Rate
 
