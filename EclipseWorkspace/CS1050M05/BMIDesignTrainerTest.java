@@ -12,7 +12,7 @@ public class BMIDesignTrainerTest
 	 */
 	public static void main(String[] args)
 	{
-		// TESTING CODE
+		// THIS IS FOR THE VIDEO
 		// TODO Auto-generated method stub
 		int athletes = 0;
 
