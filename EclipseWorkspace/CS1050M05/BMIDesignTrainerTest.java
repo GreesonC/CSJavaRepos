@@ -95,7 +95,7 @@ public class BMIDesignTrainerTest
 		currentBmi = FORM_BMI * (currentWeight / Math.pow(currentHeight, 2));
 
 		return currentBmi;
-	}
+	}// New code
 
 	// Calculate and store Max Heart Rate
 
