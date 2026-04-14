@@ -59,6 +59,9 @@ public class BMIDesignTrainerTest
 		String heartRate = "Athletes Max Heart Rate: ";
 		calculateMhr(age, heartRate);
 
+		// displayathletesBmiMhrCategory method
+		displayAthleteBmiMhrCategory(bmi, mhr, names);
+
 	}// End of Main
 
 	// Validating height and weight is a double
@@ -95,8 +98,8 @@ public class BMIDesignTrainerTest
 			String prompt2 = "Enter your height in inches: ";
 			double height = getPositiveDouble(inputMethod, prompt2);
 			System.out.println(height);
-			double bmiValue = calculateBmi(height, weight);
-			System.out.printf("BMI: " + "%.1f", bmiValue);
+			// double bmiValue = calculateBmi(height, weight);
+			// System.out.printf("BMI: " + "%.1f", bmiValue);
 
 			System.out.println("\n Enter athlete age in years: ");
 			currentAge[i] = inputMethod.nextInt();
@@ -138,8 +141,13 @@ public class BMIDesignTrainerTest
 	}
 
 	// Display athlete BMI Value, Category and Max Heart Rate
-	public static void displayAthleteBmiMhrCategory()
+	//
+	public static void displayAthleteBmiMhrCategory(double[] bmiResults, double[] mhrResults, String[] namesForDisplay)
 	{
+		for (int index = 0; index < namesForDisplay.length; index++)
+		{
+
+		}
 
 	}
 	// List all athletes outside normal BMI range
