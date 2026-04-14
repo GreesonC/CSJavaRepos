@@ -82,7 +82,7 @@ public class BMIDesignTrainerTest
 	}// End of getPositiveDouble Method
 
 	// Athlete information (Age, BMI, MHR, Names, Weight, Height, )
-	public static void enterAthleteData(double[] currentbmi, double[] currentmhr, String[] currentNames,
+	public static void enterAthleteData(double[] currentBmi, double[] currentMhr, String[] currentNames,
 			Scanner inputMethod, int[] currentAge)
 	{
 
@@ -113,6 +113,8 @@ public class BMIDesignTrainerTest
 			{
 				System.out.println("Enter athlete age in years: " + currentAge);
 			}
+			double bmiTotal = calculateBmi(height, weight); // Possibly change this variable name
+			System.out.println(bmiTotal); // Possibly change this variable name
 		}
 
 	}// End of enterAthletesData Method
