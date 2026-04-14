@@ -98,8 +98,10 @@ public class BMIDesignTrainerTest
 			String prompt2 = "Enter your height in inches: ";
 			double height = getPositiveDouble(inputMethod, prompt2);
 			System.out.println(height);
-			// double bmiValue = calculateBmi(height, weight);
-			// System.out.printf("BMI: " + "%.1f", bmiValue);
+
+			double bmiValue = calculateBmi(height, weight);
+			bmiValue = Math.round(bmiValue);
+			System.out.println("BMI: " + bmiValue);
 
 			System.out.println("\n Enter athlete age in years: ");
 			currentAge[i] = inputMethod.nextInt();
@@ -113,8 +115,7 @@ public class BMIDesignTrainerTest
 			{
 				System.out.println("Enter athlete age in years: " + currentAge);
 			}
-			double bmiTotal = calculateBmi(height, weight); // Possibly change this variable name
-			System.out.println(bmiTotal); // Possibly change this variable name
+
 		}
 
 	}// End of enterAthletesData Method
