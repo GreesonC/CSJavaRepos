@@ -57,7 +57,7 @@ public class BMIDesignTrainerTest
 
 		// calculateMhr method pass
 		String heartRate = "Athletes Max Heart Rate: ";
-		calculateMhr(age, heartRate);
+		int[] mhrAge = calculateMhr(age, heartRate, names);
 
 		// displayathletesBmiMhrCategory method
 		displayAthleteBmiMhrCategory(bmi, mhr);
@@ -99,7 +99,7 @@ public class BMIDesignTrainerTest
 			double height = getPositiveDouble(inputMethod, prompt2);
 			System.out.println(prompt2 + height);
 
-			double bmiValue = calculateBmi(height, weight);
+			double bmiValue = calculateBmi(height, weight);// This might be disrupting the single responsibility
 			bmiValue = Math.round(bmiValue);
 			System.out.println("BMI: " + bmiValue);
 
@@ -133,13 +133,16 @@ public class BMIDesignTrainerTest
 	}
 
 	// Calculate and store Max Heart Rate
-	public static int calculateMhr(int[] passingAge, String mhrPrompt)
+	public static int[] calculateMhr(int[] passingAge, String mhrPrompt, String[] storeMhrNames)
 	{
-		int currentMhr = 0;
 		final int MHR_FORM = 220;
+		int[] currentMhr = new int[passingAge.length];
+		for (int i = 0; i < passingAge.length; i++)
+		{
+			currentMhr[i] = MHR_FORM - passingAge[i];
+			System.out.println(mhrPrompt + storeMhrNames[i] + ": " + currentMhr[i]);
+		}
 
-		currentMhr = MHR_FORM - passingAge.length;
-		System.out.println(mhrPrompt + currentMhr);
 		return currentMhr;
 	}
 
