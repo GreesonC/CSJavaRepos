@@ -37,7 +37,7 @@ public class BMIDesignTrainerTest
 		athletes = keyboardInput.nextInt();
 		String[] names = new String[athletes];
 		double[] bmi = new double[athletes];
-		double[] mhr = new double[athletes];
+		int[] mhr = new int[athletes];
 		while (athletes <= 0)
 		{
 			System.out.println("Error: Enter a value greater than 0.");
@@ -53,6 +53,8 @@ public class BMIDesignTrainerTest
 		}
 		// enterAthleteData method pass
 		enterAthleteData(bmi, mhr, names, keyboardInput);
+
+		displayAthleteBmiMhrCategory(bmi, mhr, names);
 
 		athletesOutsideNorm(bmi, names);
 
@@ -91,7 +93,7 @@ public class BMIDesignTrainerTest
 	}
 
 	// Athlete information (Age, BMI, MHR, Names, Weight, Height, )
-	public static void enterAthleteData(double[] currentBmi, double[] currentMhr, String[] currentNames,
+	public static void enterAthleteData(double[] currentBmi, int[] currentMhr, String[] currentNames,
 			Scanner inputMethod)
 	{
 
@@ -119,10 +121,7 @@ public class BMIDesignTrainerTest
 			System.out.println(promptAgeInt + ageNow);
 
 			int mhrDisplay = calculateMhr(ageNow);
-			// System.out.println("Max Heart Rate: " + mhrDisplay);
 			currentMhr[i] = mhrDisplay;
-
-			// displayAthleteBmiMhrCategory(bmiValue, mhrDisplay);
 
 		}
 
@@ -153,21 +152,31 @@ public class BMIDesignTrainerTest
 
 	// Display athlete BMI Value, Category and Max Heart Rate
 	//
-	public static void displayAthleteBmiMhrCategory(double bmiResults, int mhrResults)
+	public static void displayAthleteBmiMhrCategory(double[] bmiResults, int[] mhrResults, String[] categoryNames)
 	{
+		for (int i = 0; i < bmiResults.length; i++)
+		{
 
-		System.out.println(bmiResults + "\n" + mhrResults);
-		if (bmiResults >= 30.0)
-		{
-			System.out.println("Overweight");
-		} else if (bmiResults > 18.5)
-		{
-			System.out.println("Normal");
-		}
+			// System.out.println(bmiResults + "\n" + mhrResults);
 
-		else
-		{
-			System.out.println("Underweight");
+			if (bmiResults[i] >= 30.0)
+			{
+				System.out.println("Overweight");
+				System.out.println(categoryNames[i]);
+			}
+
+			else if (bmiResults[i] > 18.5)
+			{
+				System.out.println("Normal");
+				System.out.println(categoryNames[i]);
+			}
+
+			else
+			{
+				System.out.println("Underweight");
+				System.out.println(categoryNames[i]);
+			}
+
 		}
 
 	}
