@@ -60,7 +60,7 @@ public class BMIDesignTrainerTest
 		calculateMhr(age, heartRate);
 
 		// displayathletesBmiMhrCategory method
-		displayAthleteBmiMhrCategory(bmi, mhr, names);
+		displayAthleteBmiMhrCategory(bmi, mhr);
 
 	}// End of Main
 
@@ -88,22 +88,22 @@ public class BMIDesignTrainerTest
 
 		for (int i = 0; i < currentNames.length; i++)
 		{
-			System.out.println("Enter data for " + currentNames);// Fix; should display the index of athletes
+			System.out.println("Enter data for " + currentNames[i]);// Fix; should display the index of athletes
 			System.out.println("Enter athletes first name: ");
 			currentNames[i] = inputMethod.next();
 
 			String prompt = "Enter your weight in pounds: ";
 			double weight = getPositiveDouble(inputMethod, prompt);
-			System.out.println(weight);
+			System.out.println(prompt + weight);
 			String prompt2 = "Enter your height in inches: ";
 			double height = getPositiveDouble(inputMethod, prompt2);
-			System.out.println(height);
+			System.out.println(prompt2 + height);
 
 			double bmiValue = calculateBmi(height, weight);
 			bmiValue = Math.round(bmiValue);
 			System.out.println("BMI: " + bmiValue);
 
-			System.out.println("\n Enter athlete age in years: ");
+			System.out.println("Enter athlete age in years: ");
 			currentAge[i] = inputMethod.nextInt();
 			if (currentAge.length <= 0)
 			{
@@ -145,10 +145,23 @@ public class BMIDesignTrainerTest
 
 	// Display athlete BMI Value, Category and Max Heart Rate
 	//
-	public static void displayAthleteBmiMhrCategory(double[] bmiResults, double[] mhrResults, String[] namesForDisplay)
+	public static void displayAthleteBmiMhrCategory(double[] bmiResults, double[] mhrResults)
 	{
-		for (int index = 0; index < namesForDisplay.length; index++)
+		for (int index = 0; index < bmiResults.length; index++)
 		{
+			System.out.println(bmiResults[index]);
+			if (bmiResults[index] >= 30.0)
+			{
+				System.out.println("Overweight");
+			} else if (bmiResults[index] > 18.5)
+			{
+				System.out.println("Normal");
+			}
+
+			else
+			{
+				System.out.println("Underweight");
+			}
 
 		}
 
