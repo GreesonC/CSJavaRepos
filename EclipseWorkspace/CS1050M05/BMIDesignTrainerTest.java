@@ -56,19 +56,19 @@ public class BMIDesignTrainerTest
 		enterAthleteData(bmi, mhr, names, keyboardInput, age);
 
 		// calculateMhr method pass
-		String heartRate = "Athletes Max Heart Rate: ";
-		int[] mhrAge = calculateMhr(age, heartRate, names);
+
+		// int[] passedMhr = calculateMhr(age, heartRate, names);
 
 		// displayathletesBmiMhrCategory method
-		displayAthleteBmiMhrCategory(bmi, mhr);
+		// displayAthleteBmiMhrCategory(bmi, mhr);
 
 	}// End of Main
 
 	// Validating height and weight is a double
-	public static double getPositiveDouble(Scanner methodInput, String positivePrompt)
+	public static double getPositiveDouble(Scanner methodInput, String positivePromptDouble)
 	{
 		double validDouble = 0.0;
-		System.out.println(positivePrompt);
+		System.out.println(positivePromptDouble);
 		validDouble = methodInput.nextDouble();
 		while (validDouble <= 0)
 		{
@@ -80,6 +80,21 @@ public class BMIDesignTrainerTest
 		return validDouble;
 
 	}// End of getPositiveDouble Method
+
+	public static int getPositiveInt(Scanner methodInput, String positivePromptInt)
+	{
+		int validInt = 0;
+		System.out.println(positivePromptInt);
+		validInt = methodInput.nextInt();
+		while (validInt <= 0)
+		{
+			System.out.println("Error, invalid entry. Enter positive int. ");
+
+			validInt = methodInput.nextInt();
+
+		}
+		return validInt;
+	}
 
 	// Athlete information (Age, BMI, MHR, Names, Weight, Height, )
 	public static void enterAthleteData(double[] currentBmi, double[] currentMhr, String[] currentNames,
@@ -103,21 +118,12 @@ public class BMIDesignTrainerTest
 			bmiValue = Math.round(bmiValue);
 			System.out.println("BMI: " + bmiValue);
 
-			System.out.println("Enter athlete age in years: ");
-			currentAge[i] = inputMethod.nextInt();
-			if (currentAge.length <= 0)
-			{
-				System.out.println("Error: value must be greater than 0.");
-
-				System.out.println("Enter athlete age in years: ");
-				currentAge[i] = inputMethod.nextInt();
-			} else
-			{
-				System.out.println("Enter athlete age in years: " + currentAge[i]);
-			}
+			String promptAgeInt = "Enter athlete age in years: ";
+			int ageNow = getPositiveInt(inputMethod, promptAgeInt);
+			System.out.println(promptAgeInt + ageNow);
+			// currentAge[i] = inputMethod.nextInt();
 
 		}
-
 	}// End of enterAthletesData Method
 
 	// Calculate and store user BMI
@@ -133,10 +139,10 @@ public class BMIDesignTrainerTest
 	}
 
 	// Calculate and store Max Heart Rate
-	public static int[] calculateMhr(int[] passingAge, String mhrPrompt, String[] storeMhrNames)
+	public static int calculateMhr(int passingAge, String mhrPrompt, String storeMhrNames)
 	{
 		final int MHR_FORM = 220;
-		int[] currentMhr = new int[passingAge.length];
+		int currentMhr = new int[passingAge.length];
 		for (int i = 0; i < passingAge.length; i++)
 		{
 			currentMhr[i] = MHR_FORM - passingAge[i];

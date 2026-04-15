@@ -27,7 +27,10 @@ public class TestCircleObjectClassIntro
 		// Call the method to print the number of circles
 		// set the radius to a new value
 		// print the area of the third circle
-
+		
+		//declare array for rectangle
+		rectangle rectangles;
+		rectangles = new
 	}
 }
 
@@ -60,7 +63,7 @@ class SimpleCircleA
 	// fix the code below.
 	public void setRadius(double radius)
 	{
-		radius = radius;
+		this.radius = radius;
 	}
 
 	public double getArea()
@@ -77,5 +80,4 @@ class SimpleCircleA
 	{
 		return shape;
 	}
-
 }
