@@ -113,7 +113,7 @@ public class BMIDesignTrainerTest
 				currentAge[i] = inputMethod.nextInt();
 			} else
 			{
-				System.out.println("Enter athlete age in years: " + currentAge);
+				System.out.println("Enter athlete age in years: " + currentAge[i]);
 			}
 
 		}
@@ -149,7 +149,7 @@ public class BMIDesignTrainerTest
 	{
 		for (int index = 0; index < bmiResults.length; index++)
 		{
-			System.out.println(bmiResults[index]);
+			System.out.println(bmiResults[index] + "\n" + mhrResults[index]);
 			if (bmiResults[index] >= 30.0)
 			{
 				System.out.println("Overweight");
@@ -166,14 +166,34 @@ public class BMIDesignTrainerTest
 		}
 
 	}
+
 	// List all athletes outside normal BMI range
+	public static void athletesOutsideNorm(double[] outsideBmi)
+	{
+
+	}
 
 	// Calculate and Display Average of the Max Heart Rates
+	public static void averageHeartRate(double[] averageMhr)
+	{
+
+	}
 
 	// Identify Athlete with Highest Max Heart Rate
+	public static void displayHighestHeartRate(double[] highestMhr)
+	{
+
+	}
 
 	// List all athletes above or equal to Max Heart Rate average
+	public static void displayAboveEqualMhr(double[] aboveEqualMhr, String[] mhrNames)
+	{
 
-	// Calculate and Display Training Heart Rate
+	}
 
+	// Calculate and Display Training Heart Rate asking trainer to set a percentage
+	public static void calcMhrYesOrNo(double[] trainerMhr, String[] namesTotal)
+	{
+
+	}
 }// End of Class
