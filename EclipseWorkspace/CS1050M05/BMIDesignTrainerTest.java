@@ -38,7 +38,6 @@ public class BMIDesignTrainerTest
 		String[] names = new String[athletes];
 		double[] bmi = new double[athletes];
 		double[] mhr = new double[athletes];
-		int[] age = new int[athletes];
 		while (athletes <= 0)
 		{
 			System.out.println("Error: Enter a value greater than 0.");
@@ -53,14 +52,7 @@ public class BMIDesignTrainerTest
 
 		}
 		// enterAthleteData method pass
-		enterAthleteData(bmi, mhr, names, keyboardInput, age);
-
-		// calculateMhr method pass
-
-		// int[] passedMhr = calculateMhr(age, heartRate, names);
-
-		// displayathletesBmiMhrCategory method
-		// displayAthleteBmiMhrCategory(bmi, mhr);
+		enterAthleteData(bmi, mhr, names, keyboardInput);
 
 	}// End of Main
 
@@ -98,7 +90,7 @@ public class BMIDesignTrainerTest
 
 	// Athlete information (Age, BMI, MHR, Names, Weight, Height, )
 	public static void enterAthleteData(double[] currentBmi, double[] currentMhr, String[] currentNames,
-			Scanner inputMethod, int[] currentAge)
+			Scanner inputMethod)
 	{
 
 		for (int i = 0; i < currentNames.length; i++)
@@ -109,19 +101,23 @@ public class BMIDesignTrainerTest
 
 			String prompt = "Enter your weight in pounds: ";
 			double weight = getPositiveDouble(inputMethod, prompt);
-			System.out.println(prompt + weight);
+			System.out.println(weight);
 			String prompt2 = "Enter your height in inches: ";
 			double height = getPositiveDouble(inputMethod, prompt2);
-			System.out.println(prompt2 + height);
+			System.out.println(height);
 
-			double bmiValue = calculateBmi(height, weight);// This might be disrupting the single responsibility
+			double bmiValue = calculateBmi(height, weight);
 			bmiValue = Math.round(bmiValue);
-			System.out.println("BMI: " + bmiValue);
+			// System.out.println("BMI: " + bmiValue);
 
 			String promptAgeInt = "Enter athlete age in years: ";
 			int ageNow = getPositiveInt(inputMethod, promptAgeInt);
 			System.out.println(promptAgeInt + ageNow);
-			// currentAge[i] = inputMethod.nextInt();
+
+			int mhrDisplay = calculateMhr(ageNow);
+			// System.out.println("Max Heart Rate: " + mhrDisplay);
+
+			displayAthleteBmiMhrCategory(bmiValue, mhrDisplay);
 
 		}
 	}// End of enterAthletesData Method
@@ -139,39 +135,33 @@ public class BMIDesignTrainerTest
 	}
 
 	// Calculate and store Max Heart Rate
-	public static int calculateMhr(int passingAge, String mhrPrompt, String storeMhrNames)
+	public static int calculateMhr(int passingAge)
 	{
+		int calcMhr = 0;
 		final int MHR_FORM = 220;
-		int currentMhr = new int[passingAge.length];
-		for (int i = 0; i < passingAge.length; i++)
-		{
-			currentMhr[i] = MHR_FORM - passingAge[i];
-			System.out.println(mhrPrompt + storeMhrNames[i] + ": " + currentMhr[i]);
-		}
 
-		return currentMhr;
+		calcMhr = (MHR_FORM - passingAge);
+
+		return calcMhr;
 	}
 
 	// Display athlete BMI Value, Category and Max Heart Rate
 	//
-	public static void displayAthleteBmiMhrCategory(double[] bmiResults, double[] mhrResults)
+	public static void displayAthleteBmiMhrCategory(double bmiResults, int mhrResults)
 	{
-		for (int index = 0; index < bmiResults.length; index++)
+
+		System.out.println(bmiResults + "\n" + mhrResults);
+		if (bmiResults >= 30.0)
 		{
-			System.out.println(bmiResults[index] + "\n" + mhrResults[index]);
-			if (bmiResults[index] >= 30.0)
-			{
-				System.out.println("Overweight");
-			} else if (bmiResults[index] > 18.5)
-			{
-				System.out.println("Normal");
-			}
+			System.out.println("Overweight");
+		} else if (bmiResults > 18.5)
+		{
+			System.out.println("Normal");
+		}
 
-			else
-			{
-				System.out.println("Underweight");
-			}
-
+		else
+		{
+			System.out.println("Underweight");
 		}
 
 	}
