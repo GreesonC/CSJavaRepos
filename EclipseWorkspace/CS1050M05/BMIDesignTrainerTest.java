@@ -54,6 +54,8 @@ public class BMIDesignTrainerTest
 		// enterAthleteData method pass
 		enterAthleteData(bmi, mhr, names, keyboardInput);
 
+		athletesOutsideNorm(bmi, names);
+
 	}// End of Main
 
 	// Validating height and weight is a double
@@ -110,16 +112,20 @@ public class BMIDesignTrainerTest
 			bmiValue = Math.round(bmiValue);
 			// System.out.println("BMI: " + bmiValue);
 
+			currentBmi[i] = bmiValue;
+
 			String promptAgeInt = "Enter athlete age in years: ";
 			int ageNow = getPositiveInt(inputMethod, promptAgeInt);
 			System.out.println(promptAgeInt + ageNow);
 
 			int mhrDisplay = calculateMhr(ageNow);
 			// System.out.println("Max Heart Rate: " + mhrDisplay);
+			currentMhr[i] = mhrDisplay;
 
-			displayAthleteBmiMhrCategory(bmiValue, mhrDisplay);
+			// displayAthleteBmiMhrCategory(bmiValue, mhrDisplay);
 
 		}
+
 	}// End of enterAthletesData Method
 
 	// Calculate and store user BMI
@@ -167,8 +173,34 @@ public class BMIDesignTrainerTest
 	}
 
 	// List all athletes outside normal BMI range
-	public static void athletesOutsideNorm(double[] outsideBmi)
+	public static void athletesOutsideNorm(double[] outsideBmi, String[] outsideNames)
 	{
+		System.out.println("**************************************");
+		System.out.println("Outside Normal BMI");
+		System.out.println("**************************************");
+
+		boolean outside = false;
+
+		for (int i = 0; i < outsideBmi.length; i++)
+		{
+
+			if (outsideBmi[i] < 18.5)
+			{
+				System.out.println("below the normal BMI");
+				System.out.println(outsideNames[i] + " " + outsideBmi[i]);
+				outside = true;
+
+			} else if (outsideBmi[i] >= 30)
+			{
+				System.out.println("above the normal BMI");
+				System.out.println(outsideNames[i] + " " + outsideBmi[i]);
+				outside = true;
+
+			} else if (!outside)
+			{
+				System.out.println("There are no athletes outside normal BMI.");
+			}
+		}
 
 	}
 
