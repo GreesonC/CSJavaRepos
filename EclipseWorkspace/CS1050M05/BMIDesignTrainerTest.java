@@ -38,6 +38,7 @@ public class BMIDesignTrainerTest
 		String[] names = new String[athletes];
 		double[] bmi = new double[athletes];
 		int[] mhr = new int[athletes];
+		int[] mhrAverage = new int[athletes];
 		while (athletes <= 0)
 		{
 			System.out.println("Error: Enter a value greater than 0.");
@@ -58,9 +59,11 @@ public class BMIDesignTrainerTest
 
 		athletesOutsideNorm(bmi, names);
 
-		averageHeartRate(mhr, athletes);
+		int averageMethod = averageHeartRate(mhr, athletes);
 
-		displayHighestHeartRate(mhr);
+		displayHighestHeartRate(mhr, names);
+
+		displayAboveEqualMhr(mhr, names, averageMethod);
 	}// End of Main
 
 	// Validating height and weight is a double
@@ -215,7 +218,7 @@ public class BMIDesignTrainerTest
 	}
 
 	// Calculate and Display Average of the Max Heart Rates
-	public static void averageHeartRate(int[] averageMhr, int currentAthletes)
+	public static int averageHeartRate(int[] averageMhr, int currentAthletes)
 	{
 		int sum = 0;
 		for (int i = 0; i < averageMhr.length; i++)
@@ -225,22 +228,37 @@ public class BMIDesignTrainerTest
 		int average = sum / currentAthletes;
 
 		System.out.println("The average Max Heart Rate is: " + average);
+
+		return average;
 	}
 
 	// Identify Athlete with Highest Max Heart Rate
-	public static void displayHighestHeartRate(int[] highestMhr)
+	public static void displayHighestHeartRate(int[] highestMhr, String[] highestAthleteName)
 	{
-		// int highest = 0;
+		int highest = 0;
 		for (int i = 0; i < highestMhr.length; i++)
 		{
-			System.out.println("this is the highest " + highestMhr[i]);
+			highest = highestMhr[i];
 		}
 	}
 
 	// List all athletes above or equal to Max Heart Rate average
-	public static void displayAboveEqualMhr(double[] aboveEqualMhr, String[] mhrNames)
+	public static void displayAboveEqualMhr(int[] aboveEqualMhr, String[] mhrNames, int allAboveAverage)
 	{
 
+		System.out.println("**************************************");
+		System.out.println(" Are above or equal to average MHR: ");
+		System.out.println("**************************************");
+
+		int placeValue = 0;
+		for (int i = 0; i < aboveEqualMhr.length; i++)
+		{
+			if (aboveEqualMhr[i] >= allAboveAverage)
+				;
+
+			placeValue = aboveEqualMhr[i];
+			System.out.println(mhrNames[i]);
+		}
 	}
 
 	// Calculate and Display Training Heart Rate asking trainer to set a percentage
