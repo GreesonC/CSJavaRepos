@@ -64,6 +64,8 @@ public class BMIDesignTrainerTest
 		displayHighestHeartRate(mhr, names);
 
 		displayAboveEqualMhr(mhr, names, averageMethod);
+
+		calcMhrYesOrNo(mhr, names, keyboardInput);
 	}// End of Main
 
 	// Validating height and weight is a double
@@ -240,6 +242,7 @@ public class BMIDesignTrainerTest
 		{
 			highest = highestMhr[i];
 		}
+
 	}
 
 	// List all athletes above or equal to Max Heart Rate average
@@ -254,16 +257,55 @@ public class BMIDesignTrainerTest
 		for (int i = 0; i < aboveEqualMhr.length; i++)
 		{
 			if (aboveEqualMhr[i] >= allAboveAverage)
-				;
+			{
 
-			placeValue = aboveEqualMhr[i];
-			System.out.println(mhrNames[i]);
+				placeValue = aboveEqualMhr[i];
+				System.out.println(mhrNames[i]);
+			}
 		}
 	}
 
 	// Calculate and Display Training Heart Rate asking trainer to set a percentage
-	public static void calcMhrYesOrNo(double[] trainerMhr, String[] namesTotal)
+	public static void calcMhrYesOrNo(int[] trainerMhr, String[] namesTotal, Scanner userInput)
 	{
+		int athletesAtPercentage = 0;
+		int trainingPercentage = 0;
+		boolean askContinue = false;
+		System.out.println("Do you want to calculate the training heart rates? yes or no ");
+		char answer = userInput.next().charAt(0);
+		answer = Character.toUpperCase(answer);
+
+		if (answer == 'Y' || answer == 'y')
+		{
+			askContinue = true;
+			System.out.println("Enter training percentage: ");
+			trainingPercentage = userInput.nextInt();
+			System.out.println(trainingPercentage);
+
+			for (int i = 0; i < trainerMhr.length; i++)
+			{
+
+				if (trainerMhr[i] >= namesTotal[i])
+				{
+
+					athletesAtPercentage = aboveEqualMhr[i];
+					System.out.println(mhrNames[i]);
+				}
+			}
+
+		} else if (answer == 'N' || answer == 'n')
+		{
+			askContinue = false;
+		} else
+		{
+			System.out.println("Invalid entry. Enter yes or no ");
+			answer = userInput.next().charAt(0);
+			answer = Character.toUpperCase(answer);
+		}
+
+		System.out.println("**************************************");
+		System.out.println(" Training Program Complete ");
+		System.out.println("**************************************");
 
 	}
 }// End of Class
