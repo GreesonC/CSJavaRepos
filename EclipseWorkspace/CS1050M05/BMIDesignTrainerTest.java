@@ -1,6 +1,8 @@
 
 /**
- * 
+ *  Cameron Greeson
+ * CS1050 M W
+ * Description: Trainer App Program that lets a trainer enter various data for each individual athlete
  */
 import java.util.Scanner;
 
@@ -285,10 +287,10 @@ public class BMIDesignTrainerTest
 			for (int i = 0; i < trainerMhr.length; i++)
 			{
 
-				if (trainerMhr[i] >= namesTotal[i])
+				if (trainerMhr[i] >= trainingPercentage)
 				{
 
-					athletesAtPercentage = aboveEqualMhr[i];
+					trainerMhr[i] = namesTotal;
 					System.out.println(mhrNames[i]);
 				}
 			}
