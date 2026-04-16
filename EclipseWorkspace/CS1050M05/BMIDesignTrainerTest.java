@@ -58,6 +58,9 @@ public class BMIDesignTrainerTest
 
 		athletesOutsideNorm(bmi, names);
 
+		averageHeartRate(mhr, athletes);
+
+		displayHighestHeartRate(mhr);
 	}// End of Main
 
 	// Validating height and weight is a double
@@ -157,8 +160,6 @@ public class BMIDesignTrainerTest
 		for (int i = 0; i < bmiResults.length; i++)
 		{
 
-			// System.out.println(bmiResults + "\n" + mhrResults);
-
 			if (bmiResults[i] >= 30.0)
 			{
 				System.out.println("Overweight");
@@ -214,15 +215,26 @@ public class BMIDesignTrainerTest
 	}
 
 	// Calculate and Display Average of the Max Heart Rates
-	public static void averageHeartRate(double[] averageMhr)
+	public static void averageHeartRate(int[] averageMhr, int currentAthletes)
 	{
+		int sum = 0;
+		for (int i = 0; i < averageMhr.length; i++)
+		{
+			sum = sum + averageMhr[i];
+		}
+		int average = sum / currentAthletes;
 
+		System.out.println("The average Max Heart Rate is: " + average);
 	}
 
 	// Identify Athlete with Highest Max Heart Rate
-	public static void displayHighestHeartRate(double[] highestMhr)
+	public static void displayHighestHeartRate(int[] highestMhr)
 	{
-
+		// int highest = 0;
+		for (int i = 0; i < highestMhr.length; i++)
+		{
+			System.out.println("this is the highest " + highestMhr[i]);
+		}
 	}
 
 	// List all athletes above or equal to Max Heart Rate average
