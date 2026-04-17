@@ -109,7 +109,9 @@ public class BMIDesignTrainerTest
 
 		for (int i = 0; i < currentNames.length; i++)
 		{
-			System.out.println("Enter data for " + currentNames[i]);// Fix; should display the index of athletes
+			System.out.println("Enter data for athlete  " + i);// Fix; should display the index
+
+			// athletes
 			System.out.println("Enter athletes first name: ");
 			currentNames[i] = inputMethod.next();
 
@@ -290,8 +292,8 @@ public class BMIDesignTrainerTest
 				if (trainerMhr[i] >= trainingPercentage)
 				{
 
-					trainerMhr[i] = namesTotal;
-					System.out.println(mhrNames[i]);
+					// trainerMhr[i] = namesTotal;
+					// System.out.println(mhrNames[i]);
 				}
 			}
 
