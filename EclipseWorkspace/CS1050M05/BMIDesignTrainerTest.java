@@ -68,6 +68,8 @@ public class BMIDesignTrainerTest
 		displayAboveEqualMhr(mhr, names, averageMethod);
 
 		calcMhrYesOrNo(mhr, names, keyboardInput);
+
+		keyboardInput.close();
 	}// End of Main
 
 	// Validating height and weight is a double
