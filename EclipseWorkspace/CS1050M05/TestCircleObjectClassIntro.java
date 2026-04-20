@@ -27,10 +27,11 @@ public class TestCircleObjectClassIntro
 		// Call the method to print the number of circles
 		// set the radius to a new value
 		// print the area of the third circle
-		
-		//declare array for rectangle
-		rectangle rectangles;
-		rectangles = new
+
+		// declare array for rectangle
+
+		int[] rectangles = new int[3];
+
 	}
 }
 
@@ -79,5 +80,9 @@ class SimpleCircleA
 	public static String getShape()
 	{
 		return shape;
+	}
+
+	public static printArrayRectangleInformation(int length, int width, int[] rectangles) {
+		
 	}
 }
