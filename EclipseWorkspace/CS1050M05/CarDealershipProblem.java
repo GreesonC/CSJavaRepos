@@ -11,11 +11,15 @@ public class CarDealershipProblem
 	{
 		// TODO Auto-generated method stub
 
+		// int[] cars = new int[3];
+		Car car1 = new Car("Lexus");
+		Car car2 = new Car("Toyota");
+		Car car3 = new Car("Porche");
 	}
 
 }// End of main
 
-class car
+class Car
 {
 	private String make;
 	private String model;
@@ -26,6 +30,8 @@ class car
 		return make;
 	}// End of getMake method
 
+	public String
+
 	public String getModel()
 	{
 		return model;
@@ -34,6 +40,11 @@ class car
 	public double getCost()
 	{
 		return cost;
+	}// End of getCost method
+
+	public void displayCarDetails(String make, String model, double cost)
+	{
+
 	}
 
 } // End of Class Car
