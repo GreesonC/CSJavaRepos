@@ -30,7 +30,10 @@ class Car
 		return make;
 	}// End of getMake method
 
-	public String
+	public void setMake(String make)
+	{
+		this.make = make;
+	}
 
 	public String getModel()
 	{
