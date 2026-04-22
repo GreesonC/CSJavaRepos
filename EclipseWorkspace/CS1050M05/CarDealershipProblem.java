@@ -11,20 +11,9 @@ public class CarDealershipProblem
 	{
 		// TODO Auto-generated method stub
 
-		Car car1 = new Car();
-		car1.setMake("Lexus");
-		car1.setModel("GX550");
-		car1.setCost(90000);
-
-		Car car2 = new Car();
-		car2.setMake("Porsche");
-		car2.setModel("911 GT3");
-		car2.setCost(225000);
-
-		Car car3 = new Car();
-		car3.setMake("Cadillac");
-		car3.setModel("CT5-V Blackwing");
-		car3.setCost(115000);
+		Car car1 = new Car("Lexus", "GX550", 90000);
+		Car car2 = new Car("Porsche", "911 GT3", 225000);
+		Car car3 = new Car("Cadillac", "CTV-5 Blackwing", 115000);
 
 		car1.displayCarDetails();
 		System.out.println();
@@ -45,8 +34,11 @@ class Car
 	private String model;
 	private double cost;
 
-	public void car(String make, String model, double cost)
+	public Car(String make, String model, double cost)
 	{
+		this.make = make;
+		this.model = model;
+		this.cost = cost;
 
 	}
 
@@ -55,30 +47,15 @@ class Car
 		return make;
 	}// End of getMake method
 
-	public void setMake(String make)
-	{
-		this.make = make;
-	}
-
 	public String getModel()
 	{
 		return model;
 	}// End of getModel method
 
-	public void setModel(String model)
-	{
-		this.model = model;
-	}
-
 	public double getCost()
 	{
 		return cost;
 	}// End of getCost method
-
-	public void setCost(double cost)
-	{
-		this.cost = cost;
-	}
 
 	public void displayCarDetails()
 	{

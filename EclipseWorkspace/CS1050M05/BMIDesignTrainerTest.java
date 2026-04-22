@@ -54,6 +54,7 @@ public class BMIDesignTrainerTest
 			}
 
 		}
+
 		// enterAthleteData method pass
 		enterAthleteData(bmi, mhr, names, keyboardInput);
 
