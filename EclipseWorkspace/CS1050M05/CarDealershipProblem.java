@@ -13,8 +13,13 @@ public class CarDealershipProblem
 
 		// int[] cars = new int[3];
 		Car car1 = new Car();
+		car1.setMake("Lexus");
+		car1.setModel("GX550");
+		car1.setCost(90000);
+
 		Car car2 = new Car();
 		Car car3 = new Car();
+
 	}
 
 }// End of main
@@ -40,9 +45,9 @@ class Car
 		return model;
 	}// End of getModel method
 
-	public void setModel()
+	public void setModel(String model)
 	{
-
+		this.model = model;
 	}
 
 	public double getCost()
@@ -50,14 +55,16 @@ class Car
 		return cost;
 	}// End of getCost method
 
-	public void setCost()
+	public void setCost(int cost)
 	{
-
+		this.cost = cost;
 	}
 
 	public void displayCarDetails(String make, String model, double cost)
 	{
-
+		System.out.println("Make: " + make);
+		System.out.println("Model: " + model);
+		System.out.println("Cost: " + cost);
 	}
 
 } // End of Class Car
