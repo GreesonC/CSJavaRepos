@@ -75,7 +75,6 @@ class Dealership
 	public Dealership(String name, int maxNumberCars)
 	{
 		this.name = name;
-		this.currentNumberCars = maxNumberCars;
 		cars = new Car[maxNumberCars];
 		currentNumberCars = 0;
 	}
@@ -90,7 +89,7 @@ class Dealership
 
 	}
 
-	public Car findMostExpensiveCar;
+	public Car findMostExpensiveCar()
 	{
 
 	}
