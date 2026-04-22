@@ -88,3 +88,8 @@ class Car
 	}
 
 } // End of Class Car
+
+class dealership
+{
+
+}
