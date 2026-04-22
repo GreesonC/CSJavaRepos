@@ -45,7 +45,7 @@ class Car
 	private String model;
 	private double cost;
 
-	public String car(String make, String model, double cost)
+	public void car(String make, String model, double cost)
 	{
 
 	}
@@ -70,7 +70,7 @@ class Car
 		this.model = model;
 	}
 
-	public String getCost()
+	public double getCost()
 	{
 		return cost;
 	}// End of getCost method
