@@ -68,5 +68,22 @@ class Car
 
 class dealership
 {
+	private String dealershipName;
+	private Car[] cars;
+	int currentNumberCars;
 
+	public Car(String dealershipName, int MaxNumberCars)
+	{
+		
+	}
+
+	public String getDealershipName()
+	{
+
+	}
+
+	public void addCar(Car newCar)
+	{
+
+	}
 }
