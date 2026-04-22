@@ -66,23 +66,41 @@ class Car
 
 } // End of Class Car
 
-class dealership
+class Dealership
 {
-	private String dealershipName;
+	private String name;
 	private Car[] cars;
 	int currentNumberCars;
 
-	public Car(String dealershipName, int MaxNumberCars)
+	public Dealership(String name, int maxNumberCars)
 	{
-		
+		this.name = name;
+		this.currentNumberCars = maxNumberCars;
+		cars = new Car[maxNumberCars];
+		currentNumberCars = 0;
 	}
 
 	public String getDealershipName()
 	{
-
+		return name;
 	}
 
 	public void addCar(Car newCar)
+	{
+
+	}
+
+	public Car findMostExpensiveCar;
+	{
+
+	}
+
+	public void displayCars()
+	{
+
+	}
+
+	public void writeCarsToFile()
 	{
 
 	}
