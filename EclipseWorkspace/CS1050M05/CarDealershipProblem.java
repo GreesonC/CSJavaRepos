@@ -10,10 +10,12 @@ public class CarDealershipProblem
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-
+		// [] carList = new Car[3];
 		Car car1 = new Car("Lexus", "GX550", 90000);
 		Car car2 = new Car("Porsche", "911 GT3", 225000);
 		Car car3 = new Car("Cadillac", "CTV-5 Blackwing", 115000);
+
+		Dealership dealer = new Dealership("Pete's Auto's", 4);
 
 		car1.displayCarDetails();
 		System.out.println();
@@ -24,6 +26,9 @@ public class CarDealershipProblem
 		car3.displayCarDetails();
 		System.out.println();
 
+		dealer.addCar(car1);
+		dealer.addCar(car2);
+		dealer.addCar(car3);
 	}
 
 }// End of main
@@ -86,7 +91,7 @@ class Dealership
 
 	public void addCar(Car newCar)
 	{
-
+		System.out.println("Add car: " + newCar);
 	}
 
 	public Car findMostExpensiveCar()
@@ -106,7 +111,7 @@ class Dealership
 
 	public void displayCars()
 	{
-
+		System.out.println(cars);
 	}
 
 	public void writeCarsToFile()
