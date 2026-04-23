@@ -92,6 +92,16 @@ class Dealership
 	public Car findMostExpensiveCar()
 	{
 
+		Car findMostExpensiveCar = cars[0];
+
+		for (int index = 1; index < currentNumberCars; index++)
+		{
+			if (cars[index].getCost() > findMostExpensiveCar.getCost())
+			{
+				findMostExpensiveCar = cars[index];
+			}
+		}
+		return findMostExpensiveCar;
 	}
 
 	public void displayCars()
@@ -103,4 +113,5 @@ class Dealership
 	{
 
 	}
+
 }
