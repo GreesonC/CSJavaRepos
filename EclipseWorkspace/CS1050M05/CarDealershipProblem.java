@@ -111,7 +111,11 @@ class Dealership
 
 	public void displayCars()
 	{
-		System.out.println(cars);
+		for (int index = 0; index < currentNumberCars; index++)
+		{
+			cars[index].displayCarDetails();
+			System.out.println();
+		}
 	}
 
 	public void writeCarsToFile()
