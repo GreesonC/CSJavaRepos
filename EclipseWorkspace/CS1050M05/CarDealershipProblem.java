@@ -11,24 +11,21 @@ public class CarDealershipProblem
 	{
 		// TODO Auto-generated method stub
 		// [] carList = new Car[3];
+
 		Car car1 = new Car("Lexus", "GX550", 90000);
 		Car car2 = new Car("Porsche", "911 GT3", 225000);
 		Car car3 = new Car("Cadillac", "CTV-5 Blackwing", 115000);
 
-		car1.displayCarDetails();
-		System.out.println();
-
-		car2.displayCarDetails();
-		System.out.println();
-
-		car3.displayCarDetails();
-		System.out.println();
-
-		Dealership dealer = new Dealership("Pete's Auto's", 3);
+		Dealership dealer = new Dealership("Pete's Autos", 3);
 
 		dealer.addCar(car1);
 		dealer.addCar(car2);
 		dealer.addCar(car3);
+		dealer.displayCars();
+		System.out.println();
+
+		dealer.findMostExpensiveCar().displayCarDetails();
+		System.out.println();
 
 	}
 
@@ -100,7 +97,7 @@ class Dealership
 
 		else
 		{
-			System.out.println("Dealership is full!");
+			System.out.println("Dealership is full.");
 		}
 	}
 
@@ -114,6 +111,7 @@ class Dealership
 			if (cars[index].getCost() > findMostExpensiveCar.getCost())
 			{
 				findMostExpensiveCar = cars[index];
+				System.out.println("Most Expensive Car: ");
 			}
 		}
 		return findMostExpensiveCar;
@@ -128,7 +126,7 @@ class Dealership
 		}
 	}
 
-	public void writeCarsToFile()
+	public void writeCarsToFile(String fileName)
 	{
 
 	}

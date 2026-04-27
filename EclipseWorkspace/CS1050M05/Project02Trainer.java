@@ -102,5 +102,16 @@ class Athlete
 	{
 
 	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public double getHeight()
+	{
+		return height;
+	}
+
 }
 // ================= ADD TEAM CLASS =================
