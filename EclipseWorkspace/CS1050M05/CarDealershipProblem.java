@@ -15,8 +15,6 @@ public class CarDealershipProblem
 		Car car2 = new Car("Porsche", "911 GT3", 225000);
 		Car car3 = new Car("Cadillac", "CTV-5 Blackwing", 115000);
 
-		Dealership dealer = new Dealership("Pete's Auto's", 4);
-
 		car1.displayCarDetails();
 		System.out.println();
 
@@ -26,9 +24,12 @@ public class CarDealershipProblem
 		car3.displayCarDetails();
 		System.out.println();
 
+		Dealership dealer = new Dealership("Pete's Auto's", 3);
+
 		dealer.addCar(car1);
 		dealer.addCar(car2);
 		dealer.addCar(car3);
+
 	}
 
 }// End of main
@@ -91,7 +92,16 @@ class Dealership
 
 	public void addCar(Car newCar)
 	{
-		System.out.println("Add car: " + newCar);
+		if (currentNumberCars < cars.length)
+		{
+			cars[currentNumberCars] = newCar;
+			currentNumberCars++;
+		}
+
+		else
+		{
+			System.out.println("Dealership is full!");
+		}
 	}
 
 	public Car findMostExpensiveCar()

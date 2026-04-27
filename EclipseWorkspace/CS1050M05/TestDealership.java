@@ -1,6 +1,9 @@
+
 /**
  * 
  */
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TestDealership
@@ -29,6 +32,7 @@ public class TestDealership
 		}
 		System.out.println("\nEnd of program");
 	}
+
 	public static void dealershipSetUp(String fileName, Dealership newDealership) throws FileNotFoundException
 	{
 		File inputFile = new File(fileName);
@@ -43,6 +47,7 @@ public class TestDealership
 		}
 		fileScanner.close();
 	}
+
 	public static void displayProgramSummary()
 	{
 		System.out.println("**************************************");
