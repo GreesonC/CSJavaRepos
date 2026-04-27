@@ -17,34 +17,15 @@ public class BMIDesignTrainerTest
 
 		// TODO Auto-generated method stub
 		int athletes = 0;
-
+		displayProgramOverview();
 		Scanner keyboardInput = new Scanner(System.in);
-		// Display overview of program
-		System.out.println("**************************************");
-		System.out.println("Program Overview");
-		System.out.println("**************************************");
-		System.out.println("The trainer enters how many athletes are on the team. "
-				+ "\n Then the trainer enters each athletes weight, height, and age"
-				+ "\n For each athlete the program calculates BMI and Max Heart Rate." + "\n BMI categories"
-				+ "\n under 18.5: Underweight" + "" + "\n 18.5 to under 30: Normal" + "\n 30 or greater; High"
-				+ "\n Calculates pertentage of Max Heart Rate for athlete training goal if needed.");
-		System.out.println("" + "\n");
-
-		System.out.println("**************************************");
-		System.out.println("Athlete Entry");
-		System.out.println("**************************************");
 
 		// Enter amount of athletes
-		System.out.println("Enter the number of athletes on the team: ");
+		System.out.println("\n Enter the number of athletes on the team: ");
 		athletes = keyboardInput.nextInt();
-		String[] names = new String[athletes];
-		double[] bmi = new double[athletes];
-		int[] mhr = new int[athletes];
-		int[] mhrAverage = new int[athletes];
 		while (athletes <= 0)
 		{
 			System.out.println("Error: Enter a value greater than 0.");
-			System.out.println("\n");
 			System.out.println("Enter the number of athletes on the team: ");
 			athletes = keyboardInput.nextInt();
 			if (athletes > 0)
@@ -54,6 +35,11 @@ public class BMIDesignTrainerTest
 			}
 
 		}
+
+		String[] names = new String[athletes];
+		double[] bmi = new double[athletes];
+		int[] mhr = new int[athletes];
+		int[] mhrAverage = new int[athletes];
 
 		// enterAthleteData method pass
 		enterAthleteData(bmi, mhr, names, keyboardInput);
@@ -72,6 +58,20 @@ public class BMIDesignTrainerTest
 
 		keyboardInput.close();
 	}// End of Main
+
+	public static void displayProgramOverview()
+	{
+		// Display overview of program
+		System.out.println("\n");
+		System.out.println("**************************************");
+		System.out.println("Program Overview");
+		System.out.println("**************************************");
+		System.out.println("The trainer enters how many athletes are on the team. "
+				+ "\n Then the trainer enters each athletes weight, height, and age"
+				+ "\n For each athlete the program calculates BMI and Max Heart Rate." + "\n BMI categories"
+				+ "\n under 18.5: Underweight" + "" + "\n 18.5 to under 30: Normal" + "\n 30 or greater; High"
+				+ "\n Calculates pertentage of Max Heart Rate for athlete training goal if needed.");
+	}
 
 	// Validating height and weight is a double
 	public static double getPositiveDouble(Scanner methodInput, String positivePromptDouble)
@@ -106,9 +106,22 @@ public class BMIDesignTrainerTest
 	}
 
 	// Athlete information (Age, BMI, MHR, Names, Weight, Height, )
+	/**
+	 * @param currentBmi
+	 * @param currentMhr
+	 * @param currentNames
+	 * @param inputMethod  The methods purpose is to allow the user to input
+	 *                     Athletes data and verify it by calling the other method
+	 *                     "getValidDouble" & "getValidInt". Moves up the array at
+	 *                     the index for each athletes name entered. returns values
+	 *                     for BMI and MHR
+	 */
 	public static void enterAthleteData(double[] currentBmi, int[] currentMhr, String[] currentNames,
 			Scanner inputMethod)
 	{
+		System.out.println("**************************************");
+		System.out.println("Athlete Entry");
+		System.out.println("**************************************");
 
 		for (int i = 0; i < currentNames.length; i++)
 		{
