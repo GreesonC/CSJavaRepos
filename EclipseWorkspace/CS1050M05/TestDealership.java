@@ -15,7 +15,10 @@ public class TestDealership
 	public static void main(String[] args)
 	{
 		displayProgramSummary();
+		Scanner inputFile = new Scanner("CarDealershipProblem.txt");
+
 		String fileName = "cars1.txt";
+
 		try
 		{
 			System.out.println("\nTesting file: " + fileName);
@@ -23,7 +26,7 @@ public class TestDealership
 			dealershipSetUp(fileName, dealership);
 			dealership.displayCars();
 			System.out.println("\nMost Expensive Car:");
-			dealership.displayMostExpensiveCar();
+			dealership.findMostExpensiveCar();
 			String outputFileName = dealership.getDealershipName() + ".txt";
 			dealership.writeCarsToFile(outputFileName);
 		} catch (FileNotFoundException exception)
