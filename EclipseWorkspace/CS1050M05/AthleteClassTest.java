@@ -38,4 +38,23 @@ class Athlete
 		return height;
 	}
 
+	public double calculateBMI()
+	{
+
+	}
+
+	public String determineBMICategory()
+	{
+
+	}
+
+	public int calculateMaxHeartRate()
+	{
+
+	}
+
+	public void displayAthleteAnalysis()
+	{
+
+	}
 }
