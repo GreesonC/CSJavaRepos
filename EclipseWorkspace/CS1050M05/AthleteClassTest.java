@@ -11,7 +11,9 @@ public class AthleteClassTest
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-		Athlete athlete1 = new Athlete();
+		Athlete athlete1 = new Athlete("Cameron ", 150, 69, 26);
+
+		athlete1.displayAthleteAnalysis();
 	}
 
 }
