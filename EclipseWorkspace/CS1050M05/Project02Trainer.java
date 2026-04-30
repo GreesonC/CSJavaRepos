@@ -91,27 +91,5 @@ public class Project02Trainer
 }
 
 // ================= ADD ATHLETE CLASS =================
-class Athlete
-{
-	private String name;
-	private double weight;
-	private double height;
-	private int age;
 
-	public Athlete(String name, double weight, double height, int age)
-	{
-
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
-	public double getHeight()
-	{
-		return height;
-	}
-
-}
 // ================= ADD TEAM CLASS =================

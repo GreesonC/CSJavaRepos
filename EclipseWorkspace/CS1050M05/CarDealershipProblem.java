@@ -1,6 +1,11 @@
+
 /**
  * 
  */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class CarDealershipProblem
 {
 
@@ -27,6 +32,14 @@ public class CarDealershipProblem
 		dealer.findMostExpensiveCar().displayCarDetails();
 		System.out.println();
 
+		try
+		{
+			Dealership dealership = new Dealership("Pete's Autos", 3);
+			dealership.writeCarsToFile("Pete's_Autos.txt");
+		} catch (FileNotFoundException exception)
+		{
+			System.out.println("Error: Unable to find this file: ");
+		}
 	}
 
 }// End of main
@@ -126,9 +139,13 @@ class Dealership
 		}
 	}
 
-	public void writeCarsToFile(String fileName)
+	public void writeCarsToFile(String fileName) throws FileNotFoundException
 	{
-
+		File outputFile = new File(fileName);
+		PrintWriter fileWriter = new PrintWriter(outputFile);
+		fileWriter.println("Write Information");
+		fileWriter.close();
+		System.out.println("Data Written to File: " + outputFile.getAbsolutePath());
 	}
 
 }

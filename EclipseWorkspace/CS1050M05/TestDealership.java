@@ -15,7 +15,6 @@ public class TestDealership
 	public static void main(String[] args)
 	{
 		displayProgramSummary();
-		Scanner inputFile = new Scanner("CarDealershipProblem.txt");
 
 		String fileName = "cars1.txt";
 
