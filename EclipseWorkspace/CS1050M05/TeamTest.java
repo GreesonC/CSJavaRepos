@@ -29,6 +29,8 @@ public class TeamTest
 		team.displayAthletesOutsideNormalBMI();
 		System.out.println();
 
+		team.displayHighestMHR();
+		System.out.println();
 	}
 
 }
@@ -111,7 +113,7 @@ class TestTeam
 		double sum = 0;
 		for (int i = 0; i < athleteCount; i++)
 		{
-			sum = athletes[i].calculateMaxHeartRate();
+			sum = sum + athletes[i].calculateMaxHeartRate();
 		}
 		double average = sum / athleteCount;
 
@@ -129,7 +131,7 @@ class TestTeam
 			int aboveMHR = athletes[i].calculateMaxHeartRate();
 			double carryAverage = calculateAverageMaxHeartRate();
 
-			if (athleteCount > carryAverage)
+			if (aboveMHR > carryAverage)
 			{
 				System.out.println("Above average MHR: " + aboveMHR);
 
@@ -162,7 +164,17 @@ class TestTeam
 
 	public void displaySmallestLargestHeight()
 	{
+		double smallestAndLargestHeight = athletes[0].getHeight();
+		// double largestHeight = athletes[0].getHeight();
+		Athlete smallestAndLargestAthlete = athletes[0];
+		for (int index = 1; index < athleteCount; index++)
+		{
+			double currentSmallestLargestAthlete = athletes[index].getHeight();
+		}
+		if (currentSmallestLargestAthlete > smallestAndLargestHeight)
+		{
 
+		}
 	}
 
 	public void writeAthletesToFile(String fileName)
