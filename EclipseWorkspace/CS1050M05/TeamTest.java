@@ -158,7 +158,7 @@ class TestTeam
 			}
 
 		}
-		System.out.println("Highest Max Heart Rate: " + highestAthlete + "," + highestMHR);
+		System.out.println("Highest Max Heart Rate: " + highestAthlete.getName() + ", " + highestMHR);
 
 	}
 
@@ -178,6 +178,9 @@ class TestTeam
 				largestAthlete = athletes[index];
 			}
 		}
+
+		System.out.println("Smallest height: " + smallestAthlete.getName() + ", " + smallestAthlete.getHeight());
+		System.out.println("Largest height: " + largestAthlete.getName() + ", " + largestAthlete.getHeight());
 	}
 
 	public void writeAthletesToFile(String fileName)
