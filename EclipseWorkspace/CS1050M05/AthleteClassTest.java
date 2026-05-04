@@ -11,7 +11,7 @@ public class AthleteClassTest
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-		Athlete athlete1 = new Athlete("Cameron ", 150, 69, 26);
+		Athlete athlete1 = new Athlete("Cameron", 150, 69, 26);
 
 		athlete1.displayAthleteAnalysis();
 	}
@@ -64,7 +64,7 @@ class Athlete
 		final int FORM_BMI = 703;
 
 		currentBmi = FORM_BMI * (weight / Math.pow(height, 2));
-
+		currentBmi = Math.round(currentBmi);
 		return currentBmi;
 	}
 
@@ -112,7 +112,8 @@ class Athlete
 
 	public void displayAthleteAnalysis()
 	{
-		System.out.println(name);
+		System.out
+				.println(name + ", " + calculateBMI() + ", " + determineBMICategory() + ", " + calculateMaxHeartRate());
 
 	}
 }
