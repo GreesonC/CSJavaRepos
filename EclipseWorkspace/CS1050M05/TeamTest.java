@@ -31,6 +31,13 @@ public class TeamTest
 
 		team.displayHighestMHR();
 		System.out.println();
+
+		team.calculateAverageMaxHeartRate();
+		System.out.println();
+
+		team.displayAthletesAboveAverageMHR();
+		System.out.println();
+
 	}
 
 }
@@ -83,7 +90,7 @@ class TestTeam
 
 	public void displayAthletesOutsideNormalBMI()
 	{
-		boolean outside = false;
+		boolean outsideNormalBMI = false;
 
 		// String outsideAthlete = determineBMICategory();
 
@@ -93,15 +100,15 @@ class TestTeam
 
 			if (outsideAthlete < 18.5)
 			{
-				System.out.println("below the normal BMI " + athletes[i]);
-				outside = true;
+				System.out.println("below the normal BMI " + athletes[i].getName());
+				outsideNormalBMI = true;
 
 			} else if (outsideAthlete >= 30)
 			{
-				System.out.println("above the normal BMI: " + athletes[i]);
-				outside = true;
+				System.out.println("above the normal BMI: " + athletes[i].getName());
+				outsideNormalBMI = true;
 
-			} else if (!outside)
+			} else if (!outsideNormalBMI)
 			{
 
 			}
@@ -116,7 +123,7 @@ class TestTeam
 			sum = sum + athletes[i].calculateMaxHeartRate();
 		}
 		double average = sum / athleteCount;
-
+		average = Math.round(average);
 		System.out.println("The average Max Heart Rate is: " + average);
 
 		return average;
@@ -124,7 +131,7 @@ class TestTeam
 
 	public void displayAthletesAboveAverageMHR()
 	{
-		boolean outside = false;
+		boolean outsideAverageMHR = false;
 
 		for (int i = 0; i < athleteCount; i++)
 		{
