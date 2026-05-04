@@ -11,21 +11,21 @@ public class AthleteClassTest
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-		Athlete athlete1 = new Athlete("Cameron", 150, 69, 26);
+		AthleteTest athlete1 = new AthleteTest("Cameron", 150, 69, 26);
 
 		athlete1.displayAthleteAnalysis();
 	}
 
 }
 
-class Athlete
+class AthleteTest
 {
 	private String name;
 	private double weight;
 	private double height;
 	private int age;
 
-	public Athlete(String name, double weight, double height, int age)
+	public AthleteTest(String name, double weight, double height, int age)
 	{
 		this.name = name;
 		this.weight = weight;

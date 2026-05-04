@@ -190,4 +190,113 @@ class Athlete
 
 	}
 }
+
 // ================= ADD TEAM CLASS =================
+class Team
+{
+	private String teamName;
+	private Athlete[] athletes;
+	private int athleteCount;
+
+	public Team(String teamName, int maxAthletes)
+	{
+		this.teamName = teamName;
+		athletes = new Athlete[maxAthletes];
+		athleteCount = 0;
+	}
+
+	public String getTeamName()
+	{
+		return teamName;
+	}
+
+	public int getAthleteCount()
+	{
+		return athleteCount;
+	}
+
+	public void addAthlete(Athlete athlete)
+	{
+		if (athleteCount < athletes.length)
+		{
+			athletes[athleteCount] = athlete;
+			athleteCount++;
+		}
+
+		else
+		{
+			System.out.println("No more Athletes");
+		}
+	}
+
+	public void displayAthleteResults()
+	{
+		for (int index = 0; index < athleteCount; index++)
+		{
+			System.out.println(athletes[index]);
+		}
+	}
+
+	public void displayAthletesOutsideNormalBMI()
+	{
+		boolean outside = false;
+
+		// String outsideAthlete = determineBMICategory();
+
+		for (int i = 0; i < athleteCount; i++)
+		{
+			double outsideAthlete = athletes[i].calculateBMI();
+
+			if (athleteCount < 18.5)
+			{
+				System.out.println("below the normal BMI");
+				System.out.println(athletes + " " + athletes);
+				outside = true;
+
+			} else if (outsideAthlete >= 30)
+			{
+				System.out.println("above the normal BMI");
+				System.out.println(outsideAthlete + " " + outsideAthlete);
+				outside = true;
+
+			} else if (!outside)
+			{
+				System.out.println("There are no athletes outside normal BMI.");
+			}
+		}
+	}
+
+	public double calculateAverageMaxHeartRate()
+	{
+		int sum = 0;
+		for (int i = 0; i < athleteCount; i++)
+		{
+			sum = athletes[i].calculateMaxHeartRate();
+		}
+		int average = sum / athleteCount;
+
+		System.out.println("The average Max Heart Rate is: " + average);
+
+		return average;
+	}
+
+	public void displayAthletesAboveAverageMHR()
+	{
+
+	}
+
+	public void displayHighestMHR()
+	{
+
+	}
+
+	public void displaySmallestLargestHeight()
+	{
+
+	}
+
+	public void writeAthletesToFile(String fileName)
+	{
+
+	}
+}
