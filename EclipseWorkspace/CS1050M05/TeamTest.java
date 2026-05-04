@@ -15,7 +15,7 @@ public class TeamTest
 	{
 		// TODO Auto-generated method stub
 		Athlete athlete1 = new Athlete("Mac", 155, 69, 23);
-		Athlete athlete2 = new Athlete("Cameron", 150, 69, 26);
+		Athlete athlete2 = new Athlete("Cameron", 150, 50, 26);
 		Athlete athlete3 = new Athlete("Pete", 190, 72, 21);
 
 		TestTeam team = new TestTeam("Nuggets", 3);
@@ -89,19 +89,19 @@ class TestTeam
 		{
 			double outsideAthlete = athletes[i].calculateBMI();
 
-			if (athleteCount < 18.5)
+			if (outsideAthlete < 18.5)
 			{
-				System.out.println("below the normal BMI " + outsideAthlete);
+				System.out.println("below the normal BMI " + athletes[i]);
 				outside = true;
 
 			} else if (outsideAthlete >= 30)
 			{
-				System.out.println("above the normal BMI: " + outsideAthlete);
+				System.out.println("above the normal BMI: " + athletes[i]);
 				outside = true;
 
 			} else if (!outside)
 			{
-				System.out.println("There are no athletes outside normal BMI.");
+
 			}
 		}
 	}
@@ -142,12 +142,22 @@ class TestTeam
 
 	public void displayHighestMHR()
 	{
-		int highestMHR = 0;
-		for (int i = 0; i < athleteCount; i++)
+		int highestMHR = athletes[0].calculateMaxHeartRate();
+		Athlete highestAthlete = athletes[0];
+
+		for (int i = 1; i < athleteCount; i++)
 		{
-			highestMHR = athletes[i].calculateMaxHeartRate();
+			int currentMHR = athletes[i].calculateMaxHeartRate();
+
+			if (currentMHR > highestMHR)
+			{
+				highestMHR = currentMHR;
+				highestAthlete = athletes[i];
+			}
 
 		}
+		System.out.println("Highest Max Heart Rate: " + highestAthlete + "," + highestMHR);
+
 	}
 
 	public void displaySmallestLargestHeight()
