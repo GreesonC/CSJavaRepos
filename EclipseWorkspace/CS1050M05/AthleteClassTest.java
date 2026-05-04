@@ -63,7 +63,7 @@ class Athlete
 		double currentBmi = 0;
 		final int FORM_BMI = 703;
 
-		currentBmi = FORM_BMI * (currentWeight / Math.pow(currentHeight, 2));
+		currentBmi = FORM_BMI * (weight / Math.pow(height, 2));
 
 		return currentBmi;
 	}
@@ -81,17 +81,38 @@ class Athlete
 
 	public String determineBMICategory()
 	{
+		double bmi = calculateBMI();
+		if (bmi >= 30.0)
+		{
+			return "Overweight";
+
+		}
+
+		else if (bmi > 18.5)
+		{
+			return "Normal";
+		}
+
+		else
+		{
+			return "Underweight";
+		}
 
 	}
 
 	public int calculateMaxHeartRate()
 	{
+		int calcMhr = 0;
+		final int MHR_FORM = 220;
 
+		calcMhr = (MHR_FORM - age);
+
+		return calcMhr;
 	}
 
 	public void displayAthleteAnalysis()
 	{
-		System.out.println(name + weight + height + age);
+		System.out.println(name);
 
 	}
 }
