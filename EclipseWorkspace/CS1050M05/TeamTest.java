@@ -23,21 +23,21 @@ public class TeamTest
 		team.addAthlete(athlete1);
 		team.addAthlete(athlete2);
 		team.addAthlete(athlete3);
+
 		team.displayAthleteResults();
 		System.out.println();
 
 		team.displayAthletesOutsideNormalBMI();
 		System.out.println();
 
-		team.displayHighestMHR();
-		System.out.println();
-
-		team.calculateAverageMaxHeartRate();
-		System.out.println();
-
 		team.displayAthletesAboveAverageMHR();
 		System.out.println();
 
+		team.displayHighestMHR();
+		System.out.println();
+
+		team.displaySmallestLargestHeight();
+		System.out.println();
 	}
 
 }
@@ -131,21 +131,23 @@ class TestTeam
 
 	public void displayAthletesAboveAverageMHR()
 	{
+		double carryAverage = calculateAverageMaxHeartRate();
 		boolean outsideAverageMHR = false;
 
 		for (int i = 0; i < athleteCount; i++)
 		{
-			int aboveMHR = athletes[i].calculateMaxHeartRate();
-			double carryAverage = calculateAverageMaxHeartRate();
+			int currentMHR = athletes[i].calculateMaxHeartRate();
 
-			if (aboveMHR > carryAverage)
+			if (currentMHR > carryAverage)
 			{
-				System.out.println("Above average MHR: " + aboveMHR);
-
-			} else if (!outside)
-			{
-				System.out.println("There are no athletes above Average MHR.");
+				System.out.println("\n Above average MHR: " + athletes[i].getName() + ", " + currentMHR);
+				outsideAverageMHR = true;
 			}
+		}
+
+		if (!outsideAverageMHR)
+		{
+			System.out.println("\n There are no athletes above Average MHR.");
 		}
 	}
 
