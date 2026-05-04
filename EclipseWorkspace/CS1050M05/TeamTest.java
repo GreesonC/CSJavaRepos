@@ -164,16 +164,19 @@ class TestTeam
 
 	public void displaySmallestLargestHeight()
 	{
-		double smallestAndLargestHeight = athletes[0].getHeight();
-		// double largestHeight = athletes[0].getHeight();
-		Athlete smallestAndLargestAthlete = athletes[0];
+		Athlete smallestAthlete = athletes[0];
+		Athlete largestAthlete = athletes[0];
+
 		for (int index = 1; index < athleteCount; index++)
 		{
-			double currentSmallestLargestAthlete = athletes[index].getHeight();
-		}
-		if (currentSmallestLargestAthlete > smallestAndLargestHeight)
-		{
 
+			if (athletes[index].getHeight() < smallestAthlete.getHeight())
+			{
+				smallestAthlete = athletes[index];
+			} else if (athletes[index].getHeight() > largestAthlete.getHeight())
+			{
+				largestAthlete = athletes[index];
+			}
 		}
 	}
 
