@@ -9,6 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * 
+ */
 public class Project02Trainer
 {
 	public static void main(String[] args)
@@ -54,6 +57,12 @@ public class Project02Trainer
 		System.out.println("\nEnd of program");
 	}
 
+	/**
+	 * @param fileName
+	 * @param team
+	 * @throws FileNotFoundException reading the information from a file to test if
+	 *                               our code is working
+	 */
 	public static void teamSetUp(String fileName, Team team) throws FileNotFoundException
 	{
 		// fill in reading information from a file
@@ -108,7 +117,7 @@ public class Project02Trainer
 		System.out.println("Writes results to file");
 		System.out.println();
 	}
-}
+}// End of DisplayProgram
 
 // ================= ADD ATHLETE CLASS =================
 class Athlete
@@ -118,6 +127,14 @@ class Athlete
 	private double height;
 	private int age;
 
+	/**
+	 * @param name
+	 * @param weight
+	 * @param height
+	 * @param age    Constructor, the "this." allows up to call the getters or the
+	 *               instance variables Encapsulation (private) protects the data so
+	 *               it cannot be changed unless granted permission
+	 */
 	public Athlete(String name, double weight, double height, int age)
 	{
 		this.name = name;
@@ -150,6 +167,7 @@ class Athlete
 				+ "\n Calculates pertentage of Max Heart Rate for athlete training goal if needed.");
 	}
 
+//Calculate BMI
 	public double calculateBMI()
 	{
 
@@ -172,6 +190,7 @@ class Athlete
 		return calcMhr;
 	}
 
+// organize each athlete into BMI category
 	public String determineBMICategory()
 	{
 		double bmi = calculateBMI();
@@ -193,6 +212,7 @@ class Athlete
 
 	}
 
+// Calculate MHR
 	public int calculateMaxHeartRate()
 	{
 		int calcMhr = 0;
@@ -209,7 +229,7 @@ class Athlete
 				.println(name + ", " + calculateBMI() + ", " + determineBMICategory() + ", " + calculateMaxHeartRate());
 
 	}
-}
+}// End of Athlete Class
 
 // ================= ADD TEAM CLASS =================
 class Team
@@ -341,6 +361,11 @@ class Team
 
 	}
 
+	/**
+	 * Use the Athlete class and athletes inside to mark the index for smallest and
+	 * largest athlete using for loop to count the index and compare the heights of
+	 * each athlete
+	 */
 	public void displaySmallestLargestHeight()
 	{
 		Athlete smallestAthlete = athletes[0];
@@ -362,6 +387,7 @@ class Team
 		System.out.println("Largest height: " + largestAthlete.getName() + ", " + largestAthlete.getHeight());
 	}
 
+// Write the Athletes class to a file so it can be read
 	public void writeAthletesToFile(String teamFile) throws FileNotFoundException
 	{
 		File outputFile = new File(teamFile);
@@ -370,4 +396,4 @@ class Team
 		fileWriter.close();
 		System.out.println("Data Written to File: " + outputFile.getAbsolutePath());
 	}
-}
+}// End of Team Class
