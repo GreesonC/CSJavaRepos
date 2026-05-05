@@ -1,8 +1,13 @@
-import java.io.FileNotFoundException;
 
 /*
- * 
+ * Cameron Greeson
+ * CS 1050 M W
+ * Description: Allows multiple teams to be inputed and athlete information from file
  */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Project02Trainer
 {
@@ -11,39 +16,39 @@ public class Project02Trainer
 		displayProgramSummary();
 
 		// ===== TEST 1 =====
-		String fileName = "team1.txt";
+		String teamFile = "team1.txt";
 
 		try
 		{
-			System.out.println("\nTesting file: " + fileName);
+			System.out.println("\nTesting file: " + teamFile);
 
 			Team team = new Team("Nuggets", 6);
 
-			teamSetUp(fileName, team);
+			teamSetUp(teamFile, team);
 
 			runAnalysis(team);
 
 		} catch (FileNotFoundException exception)
 		{
-			System.out.println("Error: Unable to find file " + fileName);
+			System.out.println("Error: Unable to find file " + teamFile);
 		}
 
 		// ===== TEST 2 =====
-		fileName = "team2.txt";
+		teamFile = "team2.txt";
 
 		try
 		{
-			System.out.println("\nTesting file: " + fileName);
+			System.out.println("\nTesting file: " + teamFile);
 
 			Team team = new Team("Team CS", 4);
 
-			teamSetUp(fileName, team);
+			teamSetUp(teamFile, team);
 
 			runAnalysis(team);
 
 		} catch (FileNotFoundException exception)
 		{
-			System.out.println("Error: Unable to find file " + fileName);
+			System.out.println("Error: Unable to find file " + teamFile);
 		}
 
 		System.out.println("\nEnd of program");
@@ -52,6 +57,21 @@ public class Project02Trainer
 	public static void teamSetUp(String fileName, Team team) throws FileNotFoundException
 	{
 		// fill in reading information from a file
+		File inputFile = new File(fileName);
+		Scanner fileReader = new Scanner(inputFile);
+
+		while (fileReader.hasNext())
+		{
+			String name = fileReader.next();
+			double weight = fileReader.nextDouble();
+			double height = fileReader.nextDouble();
+			int age = fileReader.nextInt();
+
+			Athlete athlete = new Athlete(name, weight, height, age);
+			team.addAthlete(athlete);
+		}
+
+		fileReader.close();
 	}
 
 	public static void runAnalysis(Team team) throws FileNotFoundException
@@ -67,7 +87,7 @@ public class Project02Trainer
 		double avg = team.calculateAverageMaxHeartRate();
 		System.out.println("\nAverage Max Heart Rate: " + avg);
 
-		team.displayAthletesAboveAverageMHR(avg);
+		team.displayAthletesAboveAverageMHR();
 		team.displayHighestMHR();
 		team.displaySmallestLargestHeight();
 		String outputFileName = team.getTeamName() + ".txt";
@@ -233,13 +253,14 @@ class Team
 	{
 		for (int index = 0; index < athleteCount; index++)
 		{
-			System.out.println(athletes[index]);
+			athletes[index].displayAthleteAnalysis();
+			System.out.println();
 		}
 	}
 
 	public void displayAthletesOutsideNormalBMI()
 	{
-		boolean outside = false;
+		boolean outsideNormalBMI = false;
 
 		// String outsideAthlete = determineBMICategory();
 
@@ -247,34 +268,32 @@ class Team
 		{
 			double outsideAthlete = athletes[i].calculateBMI();
 
-			if (athleteCount < 18.5)
+			if (outsideAthlete < 18.5)
 			{
-				System.out.println("below the normal BMI");
-				System.out.println(athletes + " " + athletes);
-				outside = true;
+				System.out.println("below the normal BMI " + athletes[i].getName());
+				outsideNormalBMI = true;
 
 			} else if (outsideAthlete >= 30)
 			{
-				System.out.println("above the normal BMI");
-				System.out.println(outsideAthlete + " " + outsideAthlete);
-				outside = true;
+				System.out.println("above the normal BMI: " + athletes[i].getName());
+				outsideNormalBMI = true;
 
-			} else if (!outside)
+			} else if (!outsideNormalBMI)
 			{
-				System.out.println("There are no athletes outside normal BMI.");
+
 			}
 		}
 	}
 
 	public double calculateAverageMaxHeartRate()
 	{
-		int sum = 0;
+		double sum = 0;
 		for (int i = 0; i < athleteCount; i++)
 		{
-			sum = athletes[i].calculateMaxHeartRate();
+			sum = sum + athletes[i].calculateMaxHeartRate();
 		}
-		int average = sum / athleteCount;
-
+		double average = sum / athleteCount;
+		average = Math.round(average);
 		System.out.println("The average Max Heart Rate is: " + average);
 
 		return average;
@@ -282,21 +301,73 @@ class Team
 
 	public void displayAthletesAboveAverageMHR()
 	{
+		double carryAverage = calculateAverageMaxHeartRate();
+		boolean outsideAverageMHR = false;
 
+		for (int i = 0; i < athleteCount; i++)
+		{
+			int currentMHR = athletes[i].calculateMaxHeartRate();
+
+			if (currentMHR > carryAverage)
+			{
+				System.out.println("\n Above average MHR: " + athletes[i].getName() + ", " + currentMHR);
+				outsideAverageMHR = true;
+			}
+		}
+
+		if (!outsideAverageMHR)
+		{
+			System.out.println("\n There are no athletes above Average MHR.");
+		}
 	}
 
 	public void displayHighestMHR()
 	{
+		int highestMHR = athletes[0].calculateMaxHeartRate();
+		Athlete highestAthlete = athletes[0];
+
+		for (int i = 1; i < athleteCount; i++)
+		{
+			int currentMHR = athletes[i].calculateMaxHeartRate();
+
+			if (currentMHR > highestMHR)
+			{
+				highestMHR = currentMHR;
+				highestAthlete = athletes[i];
+			}
+
+		}
+		System.out.println("Highest Max Heart Rate: " + highestAthlete.getName() + ", " + highestMHR);
 
 	}
 
 	public void displaySmallestLargestHeight()
 	{
+		Athlete smallestAthlete = athletes[0];
+		Athlete largestAthlete = athletes[0];
 
+		for (int index = 1; index < athleteCount; index++)
+		{
+
+			if (athletes[index].getHeight() < smallestAthlete.getHeight())
+			{
+				smallestAthlete = athletes[index];
+			} else if (athletes[index].getHeight() > largestAthlete.getHeight())
+			{
+				largestAthlete = athletes[index];
+			}
+		}
+
+		System.out.println("Smallest height: " + smallestAthlete.getName() + ", " + smallestAthlete.getHeight());
+		System.out.println("Largest height: " + largestAthlete.getName() + ", " + largestAthlete.getHeight());
 	}
 
-	public void writeAthletesToFile(String fileName)
+	public void writeAthletesToFile(String teamFile) throws FileNotFoundException
 	{
-
+		File outputFile = new File(teamFile);
+		PrintWriter fileWriter = new PrintWriter(outputFile);
+		fileWriter.println("Write Information");
+		fileWriter.close();
+		System.out.println("Data Written to File: " + outputFile.getAbsolutePath());
 	}
 }
