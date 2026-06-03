@@ -14,8 +14,9 @@ public class Dog extends Animal
 		super(name);
 	}
 
+	@Override
 	public void speak()
 	{
-		System.out.println("Bark!");
+		System.out.println("Bark");
 	}
 }
