@@ -13,6 +13,8 @@ public class AverageScores
 		double average = total / 3.0;
 		System.out.println("Total: " + total);
 		System.out.println("Average " + average);
+
+		System.out.println("Hello World");
 	}// end of main
 		// end of class
 		// TODO Auto-generated method stub

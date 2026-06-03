@@ -27,7 +27,6 @@ public class TeamTest
 
 		team.addAthlete(athlete1);
 		team.addAthlete(athlete2);
-		team.addAthlete(athlete3);
 
 		team.displayAthleteResults();
 		System.out.println();
