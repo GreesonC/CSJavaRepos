@@ -35,8 +35,18 @@ public class NodeExercise
 			current2 = current2.getNextNode();
 		}
 
-		// Task 5: Traverse the chain again to display the updated list.
-		// Task 6: Insert a new node "Catnip" between node2 and node3.
-		// Task 7: Traverse the chain again to display the last node in the chain.
+		Node<String> catnip = new Node<>("Catnip");
+		node1.setNextNode(node2);
+		node2.setNextNode(catnip);
+		catnip.setNextNode(node3);
+
+		Node<String> current3 = node1;
+		System.out.println("\n");
+		while (current3 != null)
+		{
+			System.out.println(current3.getData());
+			current3 = current3.getNextNode();
+		}
+
 	}
 }
