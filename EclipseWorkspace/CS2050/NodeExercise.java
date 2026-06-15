@@ -10,22 +10,31 @@ public class NodeExercise
 
 	public static void main(String[] args)
 	{
-		Node<String> apple = new Node<>("Apple");
-		Node<String> banana = new Node<>("Banana");
-		Node<String> cherry = new Node<>("Cherry");
+		Node<String> node1 = new Node<>("Apple");
+		Node<String> node2 = new Node<>("Banana");
+		Node<String> node3 = new Node<>("Cherry");
 
-		apple.setNextNode(banana);
-		banana.setNextNode(cherry);
+		node1.setNextNode(node2);
+		node2.setNextNode(node3);
 
-		Node<String> current = apple;
+		Node<String> current = node1;
 		while (current != null)
 		{
 			System.out.println(current.getData());
 			current = current.getNextNode();
+
 		}
 
-		// Task 3: Traverse the chain and display the data of each node.
-		// Task 4: Update the data in node2 from "Banana" to "Blueberry".
+		node2.setData("Blueberry");
+		node2.getData();
+		Node<String> current2 = node1;
+		System.out.println("\n");
+		while (current2 != null)
+		{
+			System.out.println(current2.getData());
+			current2 = current2.getNextNode();
+		}
+
 		// Task 5: Traverse the chain again to display the updated list.
 		// Task 6: Insert a new node "Catnip" between node2 and node3.
 		// Task 7: Traverse the chain again to display the last node in the chain.
