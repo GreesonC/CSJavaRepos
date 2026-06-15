@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+
+/**
+ * 
+ */
+public class Sedan extends Vehicle
+{
+	public Sedan(String make, String model, String color, String id, int year, double price)
+	{
+		super(make, model, color, id, year, price);
+	}
+
+}
