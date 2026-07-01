@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module assignment2Demo
-{
-}
