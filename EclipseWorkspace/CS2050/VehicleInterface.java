@@ -1,25 +1,30 @@
 
-public interface VehicleInterface {
+public interface VehicleInterfaceOg
+{
 
-    String getMake();
-    String getModel();
-    String getColor();
-    String getId();
-    int getYear();
-    double getPrice();
-    
+	String getMake();
 
-    void setPrice(double price);
-    void setId(String id);
+	String getModel();
 
-    /**
-     * Returns a formatted string for menu display
-     * (NO printing here)
-     */
-    String toString();
+	String getColor();
 
-    /**
-     * Returns a formatted string for writing to a file
-     */
-    String toFileString();
+	String getId();
+
+	int getYear();
+
+	double getPrice();
+
+	void setPrice(double price);
+
+	void setId(String id);
+
+	/**
+	 * Returns a formatted string for menu display (NO printing here)
+	 */
+	String toString();
+
+	/**
+	 * Returns a formatted string for writing to a file
+	 */
+	String toFileString();
 }

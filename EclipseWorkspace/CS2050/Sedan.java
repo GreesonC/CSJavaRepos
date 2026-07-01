@@ -5,7 +5,7 @@
 /**
  * 
  */
-public class Sedan extends Vehicle
+public class SedanOg extends Vehicle
 {
 	public Sedan(String make, String model, String color, String id, int year, double price)
 	{

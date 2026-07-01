@@ -1,15 +1,15 @@
 
+public class VehicleOg implements VehicleInterface
+{
 
-public class Vehicle implements VehicleInterface {
+	protected String make;
+	protected String model;
+	protected String color;
+	protected String id;
+	protected int year;
+	protected double price;
 
-    protected String make;
-    protected String model;
-    protected String color;
-    protected String id;
-    protected int year;
-    protected double price;
-
-    public Vehicle(String make, String model, String color, String id, int year, double price) {
+	public Vehicle(String make, String model, String color, String id, int year, double price) {
         this.make = make;
         this.model = model;
         this.color = color;
@@ -18,50 +18,60 @@ public class Vehicle implements VehicleInterface {
         this.price = price;
     }
 
-    // ===== Getters =====
-    public String getMake() {
-        return make;
-    }
+	// ===== Getters =====
+	public String getMake()
+	{
+		return make;
+	}
 
-    public String getModel() {
-        return model;
-    }
-    
-    public String getColor() {
-        return color;
-    }
-    
-    public String getId() {
-        return id;
-    }
+	public String getModel()
+	{
+		return model;
+	}
 
-    public int getYear() {
-        return year;
-    }
+	public String getColor()
+	{
+		return color;
+	}
 
-    public double getPrice() {
-        return price;
-    }
+	public String getId()
+	{
+		return id;
+	}
 
-    // ===== Setter =====
-    public void setPrice(double price) {
-        this.price = price;
-    }
-    
-    public void setColor(String color) {
-        this.color = color;
-    }
-    
-    public void setId(String id) {
-        this.id = id;
-    }
+	public int getYear()
+	{
+		return year;
+	}
 
-    public String toString() {
-        return year + " " + make + " " + model + " - $" +
-               String.format("%.2f", price);
-    }
+	public double getPrice()
+	{
+		return price;
+	}
 
-    public String toFileString() {
-        return make + "," + model + "," + year + "," + price;
-    }
+	// ===== Setter =====
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
+
+	public void setColor(String color)
+	{
+		this.color = color;
+	}
+
+	public void setId(String id)
+	{
+		this.id = id;
+	}
+
+	public String toString()
+	{
+		return year + " " + make + " " + model + " - $" + String.format("%.2f", price);
+	}
+
+	public String toFileString()
+	{
+		return make + "," + model + "," + year + "," + price;
+	}
 }
