@@ -17,6 +17,7 @@ public class Cameron_Greeson_NodeExercise
 		node1.setNextNode(node2);
 		node2.setNextNode(node3);
 
+		System.out.println(node1.getNextNode().getNextNode().getData());
 		Node<String> current = node1;
 		while (current != null)
 		{
