@@ -24,6 +24,8 @@ public class MyLinkedQueue<T> implements QueueInterface<T>
 			lastNode = newNode;
 		} else
 		{
+			lastNode.setNextNode(newNode);
+			lastNode = newNode;
 
 		}
 	}
@@ -36,7 +38,13 @@ public class MyLinkedQueue<T> implements QueueInterface<T>
 	 */
 	public T dequeue()
 	{
-		return null;
+		T frontValue = firstNode.getData();
+		firstNode = firstNode.getNextNode();
+		if (firstNode == null)
+		{
+			lastNode = null;
+		}
+		return frontValue;
 	}
 
 	/**
