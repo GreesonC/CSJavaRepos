@@ -42,18 +42,33 @@ public class LinkedQueue<T>
 	public T peek()
 	{
 		// TO COMPLETE
-		return null;// Note: this is just a dummy return value.
+		if (isEmpty())
+		{
+			return null;
+		}
+
+		return front.getData();
 	}
 
 	public boolean isEmpty()
 	{
 		// TO COMPLETE
-		return false;// Note: this is just a dummy return value.
+		return front == null;
 	}
 
 	public void printQueue()
 	{
+		Node<T> currentNode = front;
+		int position = 1;
 
+		while (currentNode != null)
+		{
+			System.out.println("\nRide Request #" + position);
+			System.out.println(currentNode.getData());
+
+			currentNode = currentNode.getNextNode();
+			position++;
+		}
 	}
 
 	private class Node<T>
